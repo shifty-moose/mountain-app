@@ -1,23 +1,49 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import AppInfo from './AppInfo';
 
 function App() {
+  const [name, setName] = useState('');
+  const [elevation, setElevation] = useState(0);
+  const [isValid, setIsValid] = useState(false);
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+  
+    if (name === 'name') {
+      setName(value);
+    } else if (name === 'elevation') {
+      const newElevation = value.trim() === '' ? value : parseInt(value, 10);
+      setElevation(newElevation);
+    };
+  };
+  
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    // Perform validation logic here
+    const isNameValid = name.trim() !== '';
+    const isElevationValid = elevation.trim() !== '';
+
+    setIsValid(isNameValid && isElevationValid);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Welcome to the Mountain App!</h1>
+      <form onSubmit={handleSubmit}>
+        <p>Please enter your name:</p>
+        <input type="text" name="name" value={name} onChange={handleChange} />
+        <p>Please enter the elevation climbed:</p>
+        <input type="text" name="elevation" value={elevation} onChange={handleChange} />
+        <button type="submit">Submit</button>
+      </form>
+            <AppInfo 
+            name={name}
+            elevation={elevation}
+            isValid={isValid} />
+      
     </div>
   );
 }

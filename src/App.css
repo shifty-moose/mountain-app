@@ -1,38 +1,86 @@
-.App {
-  text-align: center;
+body {
+  margin: 0;
+  padding: 0;
+  overflow: scroll;
+  font-family: 'Inter', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  padding: 0;
+  margin: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+canvas {
+  display: flex;
+  width: 80%;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  border: 2px solid black;
+  border-top: none;
+  margin: auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.appDivText {
+  width: 80%;
+  display: flex;
+  margin: auto;
+  margin-top: 10rem;
+  margin-bottom: 6rem;
+  justify-content: space-between;
+}
+
+.leftText {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+}
+
+.appDivText .leftText h1 {
+  font-size: 3rem;
+  font-weight: 500;
+  color: #FC6100;
+}
+
+.buttonContainer {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: start;
+  height: 50px;
 }
 
-.App-link {
-  color: #61dafb;
+.buttonContainer button {
+  border: none;
+  background: none;
+  padding-right: 4rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.rightText {
+  display: flex;
+  flex-direction: column;    
+}
+
+.rightText h1 {
+  font-size: 2rem;
+  font-weight: 500;
+  text-align: right;
+  margin-bottom: 1rem;
+}
+
+.rightText h2 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  text-align: right;
+  margin-bottom: 4rem;
+}
+
+.rightText h4 {
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: right;
+}
+
+.appDiv {
+  border: 6px solid orange;
+  padding-bottom: 6rem;
 }
