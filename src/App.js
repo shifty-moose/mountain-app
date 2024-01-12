@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import AppInfo from './AppInfo';
+import CreateCanvas from './CreateCanvas';
 
 function App() {
   const [name, setName] = useState('');
@@ -39,10 +40,13 @@ function App() {
         <input type="text" name="elevation" value={elevation} onChange={handleChange} />
         <button type="submit">Submit</button>
       </form>
+
             <AppInfo 
             name={name}
             elevation={elevation}
             isValid={isValid} />
+
+            <CreateCanvas />
       
     </div>
   );
