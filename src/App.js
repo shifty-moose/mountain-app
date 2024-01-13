@@ -5,7 +5,7 @@ import CreateCanvas from './CreateCanvas';
 
 function App() {
   const [name, setName] = useState('');
-  const [elevation, setElevation] = useState(0);
+  const [elevation, setElevation] = useState(1000);
   const [isValid, setIsValid] = useState(false);
 
   const handleChange = (event) => {
@@ -43,10 +43,12 @@ function App() {
 
             <AppInfo 
             name={name}
-            elevation={elevation}
+            elevation= {elevation}
             isValid={isValid} />
 
-            <CreateCanvas />
+            <CreateCanvas 
+            elevation= {elevation}
+            />
       
     </div>
   );

@@ -40,26 +40,26 @@ const AppInfo = (props) => {
     const rightTextAnimationConfig = {
         from: { opacity: 0, transform: 'translateY(-200px)' },
         to: { opacity: 1, transform: 'translateY(0)' },
-        config: { duration: 750 },
+        config: { duration: 1500 },
         delay: 1500,
     };
     
     const leftTextAnimation = useSpring(leftTextAnimationConfig);
     const rightTextAnimation = useSpring(rightTextAnimationConfig);
-    
+
     const elevationSpring = useSpring({
         from: { value: 0 },
         to: { value: elevation },
-        config: { duration: 3000  },
-        easings: easings.easeInCubic,
-
+        config: { duration: 5000 },
+        delay: 3000,
     });
+
 
     const percentageSpring = useSpring({
         from: { value: 0 },
         to: { value: intPercentage },
-        config: { duration: 1000,  },
-        delay: 3000,
+        config: { duration: 3000,  },
+        delay: 8000,
     });
 
     return (
