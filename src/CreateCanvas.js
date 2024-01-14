@@ -7,12 +7,13 @@ import { type } from '@testing-library/user-event/dist/type';
 import './CreateCanvas.css';
 
 const CreateCanvas = (props) => {
-    const [mapMarker, setMapMarker] = useState(true);
-    const [mapMarkerLabel, setMapMarkerLabel] = useState(true);
-    const [mapMarkerLine, setMapMarkerLine] = useState(true);
-    const [mapMarkerLineTwo, setMapMarkerLineTwo] = useState(true);
+    const [mapMarkerActive, setMapMarkerActive] = useState(true);
     const canvasRef = useRef();
     const appRef = useRef();
+    const mapMarkerRef = useRef();
+    const mapMarkerLabelRef = useRef();
+    const mapMarkerLineRef = useRef();
+    const mapMarkerLineTwoRef = useRef();
 
     let elevation = props.elevation;
 
@@ -20,8 +21,6 @@ const CreateCanvas = (props) => {
     const createMapMarker = (xPos, yPos) => {   
         let mapMarkerTexture = PIXI.Texture.from('./img/mapMarker.png');
         let mapMarker = new PIXI.Sprite(mapMarkerTexture);
-
-        console.log(xPos, yPos);
 
         if (xPos < 400 && yPos <= 300 ) {
             mapMarker.x = xPos;
@@ -50,15 +49,15 @@ const CreateCanvas = (props) => {
             let mapMarkerLineTwo = new PIXI.Graphics();
             mapMarkerLineTwo.alpha = 0;
 
-            setMapMarker(mapMarker);
-            setMapMarkerLabel(mapMarkerLabel);
-            setMapMarkerLine(mapMarkerLine);
-            setMapMarkerLineTwo(mapMarkerLineTwo);
+            mapMarkerRef.current = mapMarker;
+            mapMarkerLabelRef.current = mapMarkerLabel;
+            mapMarkerLineRef.current = mapMarkerLine;
+            mapMarkerLineTwoRef.current = mapMarkerLineTwo;
 
-            appRef.current.stage.addChild(mapMarkerLine);
-            appRef.current.stage.addChild(mapMarkerLineTwo);
-            appRef.current.stage.addChild(mapMarkerLabel);
-            appRef.current.stage.addChild(mapMarker);
+            appRef.current.stage.addChild(mapMarkerLineRef.current);
+            appRef.current.stage.addChild(mapMarkerLineTwoRef.current);
+            appRef.current.stage.addChild(mapMarkerLabelRef.current);
+            appRef.current.stage.addChild(mapMarkerRef.current);
 
             gsap.to(mapMarker, { alpha: 1, duration: 1.5, delay: 0.1 });
             gsap.to(mapMarkerLine.scale, { x: 1, duration: 1.5, delay: 0.11 });
@@ -96,15 +95,15 @@ const CreateCanvas = (props) => {
         mapMarkerLineTwo.closePath();
         mapMarkerLineTwo.scale.x = 0; 
 
-        setMapMarker(mapMarker);
-        setMapMarkerLabel(mapMarkerLabel);
-        setMapMarkerLine(mapMarkerLine);
-        setMapMarkerLineTwo(mapMarkerLineTwo);
+        mapMarkerRef.current = mapMarker;
+        mapMarkerLabelRef.current = mapMarkerLabel;
+        mapMarkerLineRef.current = mapMarkerLine;
+        mapMarkerLineTwoRef.current = mapMarkerLineTwo;
 
-        appRef.current.stage.addChild(mapMarkerLine);
-        appRef.current.stage.addChild(mapMarkerLineTwo);
-        appRef.current.stage.addChild(mapMarkerLabel);
-        appRef.current.stage.addChild(mapMarker);
+        appRef.current.stage.addChild(mapMarkerLineRef.current);
+        appRef.current.stage.addChild(mapMarkerLineTwoRef.current);
+        appRef.current.stage.addChild(mapMarkerLabelRef.current);
+        appRef.current.stage.addChild(mapMarkerRef.current);
 
         gsap.to(mapMarker, { alpha: 1, duration: 1.5, delay: 0.1 });
         gsap.to(mapMarkerLine.scale, { y: 1, duration: 1.5, delay: 0.11 });
@@ -143,20 +142,21 @@ const CreateCanvas = (props) => {
             mapMarkerLineTwo.closePath();
             mapMarkerLineTwo.scale.x = 0; 
     
-            setMapMarker(mapMarker);
-            setMapMarkerLabel(mapMarkerLabel);
-            setMapMarkerLine(mapMarkerLine);
-            setMapMarkerLineTwo(mapMarkerLineTwo);
-    
-            appRef.current.stage.addChild(mapMarkerLine);
-            appRef.current.stage.addChild(mapMarkerLineTwo);
-            appRef.current.stage.addChild(mapMarkerLabel);
-            appRef.current.stage.addChild(mapMarker);
+            mapMarkerRef.current = mapMarker;
+            mapMarkerLabelRef.current = mapMarkerLabel;
+            mapMarkerLineRef.current = mapMarkerLine;
+            mapMarkerLineTwoRef.current = mapMarkerLineTwo;
+
+            appRef.current.stage.addChild(mapMarkerLineRef.current);
+            appRef.current.stage.addChild(mapMarkerLineTwoRef.current);
+            appRef.current.stage.addChild(mapMarkerLabelRef.current);
+            appRef.current.stage.addChild(mapMarkerRef.current);
     
             gsap.to(mapMarker, { alpha: 1, duration: 1.5, delay: 0.1 });
             gsap.to(mapMarkerLine.scale, { y: 1, duration: 1.5, delay: 0.11 });
             gsap.to(mapMarkerLineTwo.scale, { x: 1, duration: 1.5, delay: 0.11 });
             gsap.to(mapMarkerLabel, { alpha: 1, duration: 1.5, delay: 0.12 });
+
     } else if (xPos > 800 &&  yPos > 444 ) {
         mapMarker.x = xPos;
         mapMarker.y = yPos;
@@ -188,15 +188,15 @@ const CreateCanvas = (props) => {
         mapMarkerLineTwo.closePath();
         mapMarkerLineTwo.scale.x = 0; 
 
-        setMapMarker(mapMarker);
-        setMapMarkerLabel(mapMarkerLabel);
-        setMapMarkerLine(mapMarkerLine);
-        setMapMarkerLineTwo(mapMarkerLineTwo);
+         mapMarkerRef.current = mapMarker;
+        mapMarkerLabelRef.current = mapMarkerLabel;
+        mapMarkerLineRef.current = mapMarkerLine;
+        mapMarkerLineTwoRef.current = mapMarkerLineTwo;
 
-        appRef.current.stage.addChild(mapMarkerLine);
-        appRef.current.stage.addChild(mapMarkerLineTwo);
-        appRef.current.stage.addChild(mapMarkerLabel);
-        appRef.current.stage.addChild(mapMarker);
+        appRef.current.stage.addChild(mapMarkerLineRef.current);
+        appRef.current.stage.addChild(mapMarkerLineTwoRef.current);
+        appRef.current.stage.addChild(mapMarkerLabelRef.current);
+        appRef.current.stage.addChild(mapMarkerRef.current);
 
         gsap.to(mapMarker, { alpha: 1, duration: 1.5, delay: 0.1 });
         gsap.to(mapMarkerLine.scale, { y: 1, duration: 1.5, delay: 0.11 });
@@ -234,15 +234,15 @@ const CreateCanvas = (props) => {
         mapMarkerLineTwo.closePath();
         mapMarkerLineTwo.scale.x = 0; 
 
-        setMapMarker(mapMarker);
-        setMapMarkerLabel(mapMarkerLabel);
-        setMapMarkerLine(mapMarkerLine);
-        setMapMarkerLineTwo(mapMarkerLineTwo);
+        mapMarkerRef.current = mapMarker;
+        mapMarkerLabelRef.current = mapMarkerLabel;
+        mapMarkerLineRef.current = mapMarkerLine;
+        mapMarkerLineTwoRef.current = mapMarkerLineTwo;
 
-        appRef.current.stage.addChild(mapMarkerLine);
-        appRef.current.stage.addChild(mapMarkerLineTwo);
-        appRef.current.stage.addChild(mapMarkerLabel);
-        appRef.current.stage.addChild(mapMarker);
+        appRef.current.stage.addChild(mapMarkerLineRef.current);
+        appRef.current.stage.addChild(mapMarkerLineTwoRef.current);
+        appRef.current.stage.addChild(mapMarkerLabelRef.current);
+        appRef.current.stage.addChild(mapMarkerRef.current);
 
         gsap.to(mapMarker, { alpha: 1, duration: 1.5, delay: 0.1 });
         gsap.to(mapMarkerLine.scale, { y: 1, duration: 1.5, delay: 0.11 });
@@ -280,15 +280,15 @@ const CreateCanvas = (props) => {
         mapMarkerLineTwo.closePath();
         mapMarkerLineTwo.scale.x = 0; 
 
-        setMapMarker(mapMarker);
-        setMapMarkerLabel(mapMarkerLabel);
-        setMapMarkerLine(mapMarkerLine);
-        setMapMarkerLineTwo(mapMarkerLineTwo);
+    mapMarkerRef.current = mapMarker;
+        mapMarkerLabelRef.current = mapMarkerLabel;
+        mapMarkerLineRef.current = mapMarkerLine;
+        mapMarkerLineTwoRef.current = mapMarkerLineTwo;
 
-        appRef.current.stage.addChild(mapMarkerLine);
-        appRef.current.stage.addChild(mapMarkerLineTwo);
-        appRef.current.stage.addChild(mapMarkerLabel);
-        appRef.current.stage.addChild(mapMarker);
+        appRef.current.stage.addChild(mapMarkerLineRef.current);
+        appRef.current.stage.addChild(mapMarkerLineTwoRef.current);
+        appRef.current.stage.addChild(mapMarkerLabelRef.current);
+        appRef.current.stage.addChild(mapMarkerRef.current);
 
         gsap.to(mapMarker, { alpha: 1, duration: 1.5, delay: 0.1 });
         gsap.to(mapMarkerLine.scale, { y: 1, duration: 1.5, delay: 0.11 });
@@ -298,14 +298,20 @@ const CreateCanvas = (props) => {
     } else {
         console.log("Not valid coordinates");
     }
-};
+    };
 
-    
+    // Function to remove the map marker object
+    const removeMapMarker = () => {
+        if (mapMarkerRef.current) {
+            appRef.current.stage.removeChild(mapMarkerRef.current);
+            appRef.current.stage.removeChild(mapMarkerLabelRef.current);
+            appRef.current.stage.removeChild(mapMarkerLineRef.current);
+            appRef.current.stage.removeChild(mapMarkerLineTwoRef.current);
+        }
+    };
 
-
+    // The useEffect that renders the initial canvas with the mountains
     useEffect(() => {
-
-        console.log('useEffect 1 called');
 
         // Create the application helper and add its render target to the page
         appRef.current = new PIXI.Application({ 
@@ -314,11 +320,12 @@ const CreateCanvas = (props) => {
             backgroundAlpha: 0,
         });
 
-        const appDiv = document.querySelector('.appDiv');
+        // Function that stops multiple canvases being created
         if (canvasRef.current.firstChild) {
             canvasRef.current.removeChild(canvasRef.current.firstChild);
-        }
+        };
         canvasRef.current.appendChild(appRef.current.view);
+
         // My Array of Mountains and Buildings
         const listOfMountains = [
             {
@@ -1329,20 +1336,46 @@ const CreateCanvas = (props) => {
 
         };
 
+        let showTimeout;
+
+        // Hides the map marker on mouse over canvas
+        const handleCanvasMouseover = item => {
+            setMapMarkerActive(false);
+            gsap.to(mapMarkerLabelRef.current, { alpha: 0, duration: 0.5, delay: 0 });
+            gsap.to(mapMarkerLineRef.current, { alpha: 0, duration: 0.5, delay: 0 });
+            gsap.to(mapMarkerLineTwoRef.current, { alpha: 0, duration: 0.5, delay: 0 });
+        
+            if (showTimeout) {
+                showTimeout.kill();
+            }
+        };
+
+        // Shows the map marker on mouse out canvas
+        const handleCanvasMouseout = item => {
+            showTimeout = gsap.delayedCall(0.5, () => {
+            setMapMarkerActive(true);
+            gsap.to(mapMarkerLabelRef.current, { alpha: 1, duration: 0.5, delay: 0 });
+            gsap.to(mapMarkerLineRef.current, { alpha: 1, duration: 0.5, delay: 0 });
+            gsap.to(mapMarkerLineTwoRef.current, { alpha: 1, duration: 0.5, delay: 0 });
+            });
+        };
+
         // Creates label on mouse over and changes the texture
         const onMouseOver = item => {
             let mountain = listOfMountains.find(element => element.name === item.name);        
             let mountainTexture = PIXI.Texture.from(mountain.highlightTexture);
             item.texture = mountainTexture;
-            createMountainLabel(item);
+            createMountainLabel(item); 
+            handleCanvasMouseover(item);
         };
-
+        
         // Removes the label on mouse out and changes the texture back to the original
         const onMouseOut = item => {
             let mountain = listOfMountains.find(element => element.name === item.name);        
             let baseTexture = PIXI.Texture.from(mountain.baseTexture);
             item.texture = baseTexture;
             appRef.current.stage.removeChild(labelContainer);
+            handleCanvasMouseout(item);
         };
 
         // Creates the mountains on the canvas from my array
@@ -1364,25 +1397,19 @@ const CreateCanvas = (props) => {
             mountain.hitArea = new PIXI.Polygon(element.hitArea);
 
             appRef.current.stage.addChild(mountain);
-        });        
+        });      
+        
 
         return () => {
             appRef.current.destroy();
         };
     }, []);
 
+    // The useEffect that updates the map marker when elevation changes
     useEffect(() => {  
 
-        console.log(appRef.stage);
-            
-        if (mapMarker) {
-            appRef.current.stage.removeChild(mapMarker);
-            appRef.current.stage.removeChild(mapMarkerLabel);
-            appRef.current.stage.removeChild(mapMarkerLine);
-            appRef.current.stage.removeChild(mapMarkerLineTwo);
-            console.log('mapMarker removed');
-            setMapMarker(null);
-        }
+        removeMapMarker(); 
+
         // Massive ugly list of coordinates for the map marker in relation to elevation
         const treesCoordinates = [
             { x: 0, y: 590 },
@@ -1886,9 +1913,14 @@ const CreateCanvas = (props) => {
         };    
         
         const { x, y } = findCoordinates(elevation);
-        createMapMarker(x, y);
+        if (elevation > 0) {
+            createMapMarker(x, y);
+        };
+
 
     }, [elevation]);
+
+
     
   return <div ref={canvasRef} />;
 };
