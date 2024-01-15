@@ -8,6 +8,8 @@ import './CreateCanvas.css';
 
 const CreateCanvas = (props) => {
     const [mapMarkerActive, setMapMarkerActive] = useState(true);
+    const [isHoveringOnMountain, setIsHoveringOnMountain] = useState(false);
+    const [infoBoxActive, setInfoBoxActive] = useState(false);
     const canvasRef = useRef();
     const appRef = useRef();
     const mapMarkerRef = useRef();
@@ -330,24 +332,26 @@ const CreateCanvas = (props) => {
         const listOfMountains = [
             {
                 name: 'everest',
-                title: 'Mount Everest',
+                title: 'Mt. Everest',
+                titletwo: 'Sagarmāthā सगरमाथा, Zhūmùlǎngmǎ Fēng 峰',
                 height: '8,849m',
+                flags: '🇳🇵 🇨🇳',
 
                 // x and y coordinates for the label position
                 x: 270,
-                y: 70,
+                y: 30,
 
 
                 // x horizontal position for final position of the label text
                 xLabel: 220,
 
                 // x and y coordinates for the horizontal line to start
-                xStart: 0, 
-                yStart: 85,
+                xStart: -20, 
+                yStart: 45,
 
                 // x and y coordinates for the horizontal line to end
                 xEnd: 200,
-                yEnd: 85,
+                yEnd: 45,
 
                 // x and y coordinates for the vetical line to start
                 xVerticalStart: null,
@@ -388,23 +392,25 @@ const CreateCanvas = (props) => {
 
             {
                 name: 'anaconooga',
-                title: 'Mount Aconcagua',
+                title: 'Aconcagua',
+                titletwo: 'Cerro Aconcagua',
                 height: '6,961m',
+                flags: '🇦🇷',
 
                 // x and y coordinates for the label
                 x: 490,
-                y: 88,
+                y: 50,
 
                 // x for final position of the label text
                 xLabel: 190,
 
                 // x and y coordinates for the horizontal line to start
                 xStart: 30,
-                yStart: 105,
+                yStart: 68,
 
                 // x and y coordinates for the horizontal line to end
                 xEnd: 170,
-                yEnd: 105,
+                yEnd: 68,
 
                 // x and y coordinates for the vetical line to start
                 xVerticalStart: 30,
@@ -412,7 +418,7 @@ const CreateCanvas = (props) => {
 
                 // x and y coordinates for the vetical line to end
                 xVerticalEnd: 30,
-                yVerticalEnd: 105,
+                yVerticalEnd: 68,
 
                 // Image files for the mountain
                 baseTexture: './img/anaconooga.png',
@@ -451,22 +457,24 @@ const CreateCanvas = (props) => {
             {
                 name: 'mckinley',
                 height: '6,194m',
-                title: 'Mount McKinley',
+                title: 'Denali',
+                titletwo: 'Mount McKinley',
+                flags: '🇺🇸',
 
                 // x and y coordinates for the label
                 x: 755,
-                y: 150,
+                y: 105,
 
                 // x for final position of the label text
                 xLabel: 120,
 
                 // x and y coordinates for the horizontal line to start
                 xStart: 30,
-                yStart: 168,
+                yStart: 120,
 
                 // x and y coordinates for the horizontal line to end
                 xEnd: 100,
-                yEnd: 168,
+                yEnd: 120,
 
                 // x and y coordinates for the vetical line to start
                 xVerticalStart: 30,
@@ -474,7 +482,7 @@ const CreateCanvas = (props) => {
 
                 // x and y coordinates for the vetical line to end
                 xVerticalEnd: 30,
-                yVerticalEnd: 168,
+                yVerticalEnd: 120,
 
                 // Image files for the mountain
                 baseTexture: './img/mckinley.png',
@@ -526,27 +534,29 @@ const CreateCanvas = (props) => {
 
             {
                 name: 'kilimanjaro',
-                title: 'Mount Kilimanjaro',
+                title: 'Mt. Kilimanjaro',
+                titletwo: 'Kilima Njaro',
                 height: '5,895m',
+                flags: '🇹🇿',
 
                 // x and y coordinates for the label
                 x: 1050,
-                y: 150,
+                y: 100,
 
                 // x for final position of the label text
                 xLabel: -320,
 
                 // x and y coordinates for the horizontal line to start
                 xStart: -5,
-                yStart: 168,
+                yStart: 118,
 
                 // x and y coordinates for the horizontal line to end
                 xEnd: 30,
-                yEnd: 168,
+                yEnd: 118,
 
                 // x and y coordinates for the vetical line to start
                 xVerticalStart: 30,
-                yVerticalStart: 168,
+                yVerticalStart: 118,
 
                 // x and y coordinates for the vetical line to end
                 xVerticalEnd: 30,
@@ -609,8 +619,10 @@ const CreateCanvas = (props) => {
 
             {
                 name: 'elbrus',
-                title: 'Mount Elbrus',
+                title: 'Mt. Elbrus',
+                titletwo: 'Эльбрус',
                 height: '5,642m',
+                flags: '🇷🇺',
 
                 // x and y coordinates for the label
                 x: 1285,
@@ -673,8 +685,10 @@ const CreateCanvas = (props) => {
 
             {
                 name: 'vinson',
-                title: 'Mount Vinson',
+                title: 'Mt. Vinson',
+                titletwo: 'Vinson Massif',
                 height: '4,892m',
+                flags: '🇦🇶',
 
                 // x and y coordinates for the label
                 x: 1425,
@@ -724,7 +738,9 @@ const CreateCanvas = (props) => {
             {
                 name: 'puncakjaya',
                 title: 'Puncak Jaya',
+                titletwo: 'Carstensz Pyramid',
                 height: '4,884m',
+                flags: '🇮🇩',
 
                 // x and y coordinates for the label
                 x: 1660,
@@ -785,27 +801,29 @@ const CreateCanvas = (props) => {
 
             {
                 name: 'fuji',
-                title: 'Mount Fuji',
+                title: 'Mt. Fuji',
+                titletwo: '富士山',
                 height: '3,776m',
+                flags: '🇯🇵',
 
                 // x and y coordinates for the label
                 x: 1380,
-                y: 178,
+                y: 138,
 
                 // x for final position of the label text
                 xLabel: -250,
 
                 // x and y coordinates for the horizontal line to start
                 xStart: -5,
-                yStart: 193,
+                yStart: 153,
 
                 // x and y coordinates for the horizontal line to end
                 xEnd: 30,
-                yEnd: 193,
+                yEnd: 153,
 
                 // x and y coordinates for the vetical line to start
                 xVerticalStart: 30,
-                yVerticalStart: 193,
+                yVerticalStart: 153,
 
                 // x and y coordinates for the vetical line to end
                 xVerticalEnd: 30,
@@ -835,27 +853,29 @@ const CreateCanvas = (props) => {
 
             {
                 name: 'kosciuszko',
-                title: 'Mount Kosciuszko',
+                title: 'Mt. Kosciuszko',
+                titletwo: 'Jagungal',
                 height: '2,228m',
+                flags: '🇦🇺',
 
                 // x and y coordinates for the label
                 x: 1170,
-                y: 150,
+                y: 110,
 
                 // x for final position of the label text
                 xLabel: -350,
 
                 // x and y coordinates for the horizontal line to start
                 xStart: -12,
-                yStart: 166,
+                yStart: 126,
 
                 // x and y coordinates for the horizontal line to end
                 xEnd: 35,
-                yEnd: 166,
+                yEnd: 126,
 
                 // x and y coordinates for the vetical line to start
                 xVerticalStart: 35,
-                yVerticalStart: 166,
+                yVerticalStart: 126,
 
                 // x and y coordinates for the vetical line to end
                 xVerticalEnd: 35,
@@ -907,27 +927,29 @@ const CreateCanvas = (props) => {
 
             {
                 name: 'buller',
-                title: 'Mount Buller',
+                title: 'Mt. Buller',
+                titletwo: 'Bulla Bulla',
                 height: '1,805m',
+                flags: '🇦🇺',
 
                 // x and y coordinates for the label
                 x: 900,
-                y: 200,
+                y: 150,
 
                 // x for final position of the label text
                 xLabel: 160,
 
                 // x and y coordinates for the horizontal line to start
                 xStart: 30,
-                yStart: 215,
+                yStart: 165,
 
                 // x and y coordinates for the horizontal line to end
                 xEnd: 130,
-                yEnd: 215,
+                yEnd: 165,
 
                 // x and y coordinates for the vetical line to start
                 xVerticalStart: 30,
-                yVerticalStart: 215,
+                yVerticalStart: 165,
 
                 // x and y coordinates for the vetical line to end
                 xVerticalEnd: 30,
@@ -957,26 +979,28 @@ const CreateCanvas = (props) => {
             {
                 name: 'bennevis',
                 title: 'Ben Nevis',
+                titletwo: 'Beinn Nibheis',
                 height: '1,345m',
+                flags: '🏴󠁧󠁢󠁳󠁣󠁴󠁿 🇬🇧',
 
                 // x and y coordinates for the label
                 x: 745,
-                y: 175,
+                y: 103,
 
                 // x for final position of the label text
                 xLabel: 200,
 
                 // x and y coordinates for the horizontal line to start
                 xStart: 30,
-                yStart: 193,
+                yStart: 120,
 
                 // x and y coordinates for the horizontal line to end
                 xEnd: 170,
-                yEnd: 193,
+                yEnd: 120,
 
                 // x and y coordinates for the vetical line to start
                 xVerticalStart: 30,
-                yVerticalStart: 193,
+                yVerticalStart: 120,
 
                 // x and y coordinates for the vetical line to end
                 xVerticalEnd: 30,
@@ -1004,27 +1028,29 @@ const CreateCanvas = (props) => {
 
             {
                 name: 'christo',
-                title: 'Corcovado - Cristo Redentor',
+                title: 'Cristo Redentor',
+                titletwo: 'Christ the Redeemer - Mount Corcovado',
                 height: '738m',
+                flags: '🇧🇷',
 
                 // x and y coordinates for the label
                 x: 589,
-                y: 150,
+                y: 100,
 
                 // x for final position of the label text
                 xLabel: 200,
 
                 // x and y coordinates for the horizontal line to start
                 xStart: 30,
-                yStart: 166,
+                yStart: 116,
 
                 // x and y coordinates for the horizontal line to end
                 xEnd: 170,
-                yEnd: 166,
+                yEnd: 116,
 
                 // x and y coordinates for the vetical line to start
                 xVerticalStart: 30,
-                yVerticalStart: 166,
+                yVerticalStart: 116,
 
                 // x and y coordinates for the vetical line to end
                 xVerticalEnd: 30,
@@ -1052,8 +1078,10 @@ const CreateCanvas = (props) => {
 
             {
                 name: 'holland',
-                title: 'The Vaalserberg',
+                title: 'Der Vaalserberg',
+                titletwo: 'Drielandenpunt',
                 height: '323m',
+                flags: '🇳🇱 🇩🇪 🇧🇪',
 
                 // x and y coordinates for the label
                 x: 435,
@@ -1097,26 +1125,28 @@ const CreateCanvas = (props) => {
             {
                 name: 'burj',
                 title: 'Burj Khalifa',
+                titletwo: 'برج خليفة',
                 height: '828m',
+                flags: '🇦🇪',
 
                 // x and y coordinates for the label
                 x: 642,
-                y: 170,
+                y: 120,
 
                 // x for final position of the label text
                 xLabel: 200,
 
                 // x and y coordinates for the horizontal line to start
                 xStart: 30,
-                yStart: 187,
+                yStart: 137,
 
                 // x and y coordinates for the horizontal line to end
                 xEnd: 170,
-                yEnd: 187,
+                yEnd: 137,
 
                 // x and y coordinates for the vetical line to start
                 xVerticalStart: 30,
-                yVerticalStart: 187,
+                yVerticalStart: 137,
 
                 // x and y coordinates for the vetical line to end
                 xVerticalEnd: 30,
@@ -1140,26 +1170,28 @@ const CreateCanvas = (props) => {
             {
                 name: 'oneworldtrade',
                 title: 'One World Trade Center',
+                titletwo: 'Freedom Tower',
                 height: '541m',
+                flags: '🇺🇸',
 
                 // x and y coordinates for the label
                 x: 505,
-                y: 150,
+                y: 100,
 
                 // x for final position of the label text
                 xLabel: 150,
 
                 // x and y coordinates for the horizontal line to start
                 xStart: 30,
-                yStart: 167,
+                yStart: 117,
 
                 // x and y coordinates for the horizontal line to end
                 xEnd: 130,
-                yEnd: 167,
+                yEnd: 117,
 
                 // x and y coordinates for the vetical line to start
                 xVerticalStart: 30,
-                yVerticalStart: 167,
+                yVerticalStart: 117,
 
                 // x and y coordinates for the vetical line to end
                 xVerticalEnd: 30,
@@ -1180,32 +1212,32 @@ const CreateCanvas = (props) => {
                     540, 600,
                 ],
             },
-
-
         
             {
                 name: 'nyc',
-                title: 'New York City - Average Building Height',
+                title: 'New York City - Average building height',
+                titletwo: 'The Big Apple',
                 height: '210m',
+                flags: '🇺🇸',
 
                 // x and y coordinates for the label
                 x: 322,
-                y: 100,
+                y: 40,
 
                 // x for final position of the label text
                 xLabel: 200,
 
                 // x and y coordinates for the horizontal line to start
                 xStart: 30,
-                yStart: 117,
+                yStart: 67,
 
                 // x and y coordinates for the horizontal line to end
                 xEnd: 180,
-                yEnd: 117,
+                yEnd: 67,
 
                 // x and y coordinates for the vetical line to start
                 xVerticalStart: 30,
-                yVerticalStart: 117,
+                yVerticalStart: 67,
 
                 // x and y coordinates for the vetical line to end
                 xVerticalEnd: 30,
@@ -1229,8 +1261,10 @@ const CreateCanvas = (props) => {
 
             {
                 name: 'trees',
-                title: 'Amazon Forest - Tallest Canopy Trees',
+                title: 'Amazon Rainforest - Tallest Canopy Trees',
+                titletwo: 'Amazonía, Amazônia',
                 height: '60 - 100m',
+                flags: '🇧🇷 🇵🇪 🇨🇴 🇻🇪 🇧🇴 🇬🇾 🇸🇷',
 
                 // x and y coordinates for the label
                 x: 100,
@@ -1333,14 +1367,92 @@ const CreateCanvas = (props) => {
             // Animate the line to appear from left to right
             gsap.to(mountainLine.scale, { x: 1, duration: 0.5, delay: 0.4 });
             gsap.to(mountainLabel, { x: mountain.xLabel, duration: 0.8 }); 
+        };
+
+        // Creates the extra information popup
+        const createInfoPopup = item => {
+
+            let mountain;
+            let mountainInfoBorder;
+            let mountainMoreInfo;
+            let mountainFlags;
+
+            if (!infoBoxActive) { 
+
+                console.log("Creating info box");
+                setInfoBoxActive(true);
+
+                mountain = listOfMountains.find(element => element.name === item.name);
+
+                // Creates the extra info box graphic
+                mountainInfoBorder = new PIXI.Graphics();
+                mountainInfoBorder.lineStyle(1, '0xEEEEEE', 1);
+                mountainInfoBorder.beginFill('0xEEEEEE'); 
+
+                if (mountain.name === 'fuji') {
+                    mountainInfoBorder.moveTo(mountain.xLabel - 15, mountain.y + 40);
+                    mountainInfoBorder.lineTo(mountain.xLabel + 260, mountain.y + 40);
+                    mountainInfoBorder.lineTo(mountain.xLabel + 260, mountain.y + 120);
+                    mountainInfoBorder.lineTo(mountain.xLabel - 15, mountain.y + 120);
+                } else {
+                    mountainInfoBorder.moveTo(mountain.xLabel - 15, mountain.y + 40);
+                    mountainInfoBorder.lineTo(mountain.xLabel + 330, mountain.y + 40);
+                    mountainInfoBorder.lineTo(mountain.xLabel + 330, mountain.y + 120);
+                    mountainInfoBorder.lineTo(mountain.xLabel - 15, mountain.y + 120);
+                };
+
+                mountainInfoBorder.closePath();
+                mountainInfoBorder.endFill(); 
+                mountainInfoBorder.alpha = 0;
+
+                // Extra info text
+                mountainMoreInfo = new PIXI.Text(mountain.titletwo, {
+                    fontFamily: 'Helvetica',
+                    fontWeight: '100',
+                    fontSize: 16, 
+                    fill: 'black', 
+                    align: 'left',
+                    fontStyle: 'italic',
+                });
+                mountainMoreInfo.y = mountain.y + 52;
+                mountainMoreInfo.x = mountain.xLabel;
+                mountainMoreInfo.alpha = 0;
+
+                // Extra info flags
+                mountainFlags = new PIXI.Text(mountain.flags, {
+                    fontSize: 36, 
+                    align: 'left',
+                
+                });
+                mountainFlags.x = mountain.xLabel;
+                mountainFlags.y = mountain.y + 77;
+                mountainFlags.alpha = 0;
+
+                gsap.to(mountainInfoBorder, { alpha: 1, duration: 0.5, delay: 0 });
+                gsap.to(mountainMoreInfo, { alpha: 1, duration: 0.5, delay: 0 });
+                gsap.to(mountainFlags, { alpha: 1, duration: 0.5, delay: 0 });
+
+                labelContainer.addChild(mountainInfoBorder);
+                labelContainer.addChild(mountainFlags);
+                labelContainer.addChild(mountainMoreInfo);
+
+                console.log(infoBoxActive);
+
+            } else {
+                gsap.to(mountainInfoBorder, { alpha: 0, duration: 0.5, delay: 0 });
+                gsap.to(mountainMoreInfo, { alpha: 0, duration: 0.5, delay: 0 });
+                gsap.to(mountainFlags, { alpha: 0, duration: 0.5, delay: 0 });
+            };
 
         };
 
+        // Creating a timeout to mapMarker mouse changes
         let showTimeout;
 
         // Hides the map marker on mouse over canvas
         const handleCanvasMouseover = item => {
             setMapMarkerActive(false);
+            gsap.to(mapMarkerRef.current, { alpha: 0, duration: 0.5, delay: 0 });
             gsap.to(mapMarkerLabelRef.current, { alpha: 0, duration: 0.5, delay: 0 });
             gsap.to(mapMarkerLineRef.current, { alpha: 0, duration: 0.5, delay: 0 });
             gsap.to(mapMarkerLineTwoRef.current, { alpha: 0, duration: 0.5, delay: 0 });
@@ -1350,10 +1462,11 @@ const CreateCanvas = (props) => {
             }
         };
 
-        // Shows the map marker on mouse out canvas
+        // Shows the map marker on mouse out canvas with a delayed call to allow for mouse over to new mountains
         const handleCanvasMouseout = item => {
             showTimeout = gsap.delayedCall(0.5, () => {
             setMapMarkerActive(true);
+            gsap.to(mapMarkerRef.current, { alpha: 1, duration: 0.5, delay: 0 });
             gsap.to(mapMarkerLabelRef.current, { alpha: 1, duration: 0.5, delay: 0 });
             gsap.to(mapMarkerLineRef.current, { alpha: 1, duration: 0.5, delay: 0 });
             gsap.to(mapMarkerLineTwoRef.current, { alpha: 1, duration: 0.5, delay: 0 });
@@ -1362,6 +1475,7 @@ const CreateCanvas = (props) => {
 
         // Creates label on mouse over and changes the texture
         const onMouseOver = item => {
+            setIsHoveringOnMountain(true);
             let mountain = listOfMountains.find(element => element.name === item.name);        
             let mountainTexture = PIXI.Texture.from(mountain.highlightTexture);
             item.texture = mountainTexture;
@@ -1371,6 +1485,7 @@ const CreateCanvas = (props) => {
         
         // Removes the label on mouse out and changes the texture back to the original
         const onMouseOut = item => {
+            setIsHoveringOnMountain(false);
             let mountain = listOfMountains.find(element => element.name === item.name);        
             let baseTexture = PIXI.Texture.from(mountain.baseTexture);
             item.texture = baseTexture;
@@ -1393,6 +1508,10 @@ const CreateCanvas = (props) => {
                 onMouseOver(mountain);
             }); 
             mountain.on('pointerout', () => onMouseOut(mountain));
+
+            mountain.on('pointerdown', () => {
+                createInfoPopup(mountain);   
+            });
 
             mountain.hitArea = new PIXI.Polygon(element.hitArea);
 
