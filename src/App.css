@@ -5,6 +5,7 @@ body {
   padding: 0;
   overflow: scroll;
   font-family: 'Inter', sans-serif;
+  background-color: rgb(250, 250, 250);
 }
 
 * {
@@ -81,7 +82,4 @@ canvas {
   text-align: right;
 }
 
-.appDiv {
-  border: 6px solid orange;
-  padding-bottom: 6rem;
-}
+

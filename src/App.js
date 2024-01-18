@@ -49,6 +49,11 @@ function App() {
             <CreateCanvas 
             elevation= {elevation}
             />
+
+            <div className='footerDiv'>
+              
+            </div>
+
       
     </div>
   );
