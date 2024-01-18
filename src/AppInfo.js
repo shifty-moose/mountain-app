@@ -33,15 +33,15 @@ const AppInfo = (props) => {
     const leftTextAnimationConfig = {
         from: { opacity: 0, transform: 'translateX(-400px)' },
         to: { opacity: 1, transform: 'translateX(0)' },
-        config: { duration: 1500 },
+        config: { duration: 800 },
         easings: easings.easeInCubic,
     };
     
     const rightTextAnimationConfig = {
         from: { opacity: 0, transform: 'translateY(-200px)' },
         to: { opacity: 1, transform: 'translateY(0)' },
-        config: { duration: 1500 },
-        delay: 1500,
+        config: { duration: 800 },
+        delay: 800,
     };
     
     const leftTextAnimation = useSpring(leftTextAnimationConfig);
@@ -86,8 +86,6 @@ const AppInfo = (props) => {
                 </animated.span>
                 % to Everest Peak
                 </h2>
-
-                <h4>Jan. 2023 - Today</h4>
             </animated.div>
         </div>
     );

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import AppInfo from './AppInfo';
 import CreateCanvas from './CreateCanvas';
+import Header from './Header';
 
 function App() {
   const [name, setName] = useState('');
@@ -32,11 +33,10 @@ function App() {
 
   return (
     <div>
-      <h1>Welcome to the Mountain App!</h1>
+      <Header />
+
       <form onSubmit={handleSubmit}>
-        <p>Please enter your name:</p>
         <input type="text" name="name" value={name} onChange={handleChange} />
-        <p>Please enter the elevation climbed:</p>
         <input type="text" name="elevation" value={elevation} onChange={handleChange} />
         <button type="submit">Submit</button>
       </form>
