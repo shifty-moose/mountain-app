@@ -336,6 +336,7 @@ const CreateCanvas = (props) => {
                 titletwo: 'Sagarmāthā सगरमाथा, Zhūmùlǎngmǎ Fēng 峰',
                 height: '8,849m',
                 flags: '🇳🇵 🇨🇳',
+                location: 'Mahalangur Himal, Nepal',
 
                 // x and y coordinates for the label position
                 x: 270,
@@ -398,6 +399,7 @@ const CreateCanvas = (props) => {
                 titletwo: 'Cerro Aconcagua',
                 height: '6,961m',
                 flags: '🇦🇷',
+                location: 'Mendoza Province, Argentina',
 
                 // x and y coordinates for the label
                 x: 490,
@@ -465,6 +467,7 @@ const CreateCanvas = (props) => {
                 title: 'Denali',
                 titletwo: 'Mount McKinley',
                 flags: '🇺🇸',
+                location: 'Alaska, United States',
 
                 // x and y coordinates for the label
                 x: 755,
@@ -545,6 +548,7 @@ const CreateCanvas = (props) => {
                 titletwo: 'Kilima Njaro',
                 height: '5,895m',
                 flags: '🇹🇿',
+                location: 'Kilimanjaro Region, Tanzania',
 
                 // x and y coordinates for the label
                 x: 1050,
@@ -632,6 +636,7 @@ const CreateCanvas = (props) => {
                 titletwo: 'Эльбрус',
                 height: '5,642m',
                 flags: '🇷🇺',
+                location: 'Kabardino-Balkaria, Russia',
 
                 // x and y coordinates for the label
                 x: 1285,
@@ -700,25 +705,26 @@ const CreateCanvas = (props) => {
                 titletwo: 'Vinson Massif',
                 height: '4,892m',
                 flags: '🇦🇶',
+                location: 'Ellsworth Mountains, Antarctica',
 
                 // x and y coordinates for the label
                 x: 1425,
-                y: 150,
+                y: 270,
 
                 // x for final position of the label text
-                xLabel: -370,
+                xLabel: 170,
 
                 // x and y coordinates for the horizontal line to start
-                xStart: -90,
-                yStart: 168,
+                xStart: 30,
+                yStart: 285,
 
                 // x and y coordinates for the horizontal line to end
-                xEnd: 30,
-                yEnd: 168,
+                xEnd: 155,
+                yEnd: 285,
 
                 // x and y coordinates for the vetical line to start
                 xVerticalStart: 30,
-                yVerticalStart: 168,
+                yVerticalStart: 285,
 
                 // x and y coordinates for the vetical line to end
                 xVerticalEnd: 30,
@@ -754,25 +760,26 @@ const CreateCanvas = (props) => {
                 titletwo: 'Carstensz Pyramid',
                 height: '4,884m',
                 flags: '🇮🇩',
+                location: 'Papua, Indonesia',
 
                 // x and y coordinates for the label
-                x: 1660,
-                y: 180,
+                x: 1710,
+                y: 280,
 
                 // x for final position of the label text
                 xLabel: -350,
 
                 // x and y coordinates for the horizontal line to start
                 xStart: -90,
-                yStart: 193,
+                yStart: 295,
 
                 // x and y coordinates for the horizontal line to end
                 xEnd: 30,
-                yEnd: 193,
+                yEnd: 295,
 
                 // x and y coordinates for the vetical line to start
                 xVerticalStart: 30,
-                yVerticalStart: 193,
+                yVerticalStart: 295,
 
                 // x and y coordinates for the vetical line to end
                 xVerticalEnd: 30,
@@ -820,16 +827,17 @@ const CreateCanvas = (props) => {
                 titletwo: '富士山',
                 height: '3,776m',
                 flags: '🇯🇵',
+                location: 'Honshu, Japan',
 
                 // x and y coordinates for the label
-                x: 1380,
+                x: 1360,
                 y: 138,
 
                 // x for final position of the label text
                 xLabel: -250,
 
                 // x and y coordinates for the horizontal line to start
-                xStart: -5,
+                xStart: -45,
                 yStart: 153,
 
                 // x and y coordinates for the horizontal line to end
@@ -874,6 +882,7 @@ const CreateCanvas = (props) => {
                 titletwo: 'Jagungal',
                 height: '2,228m',
                 flags: '🇦🇺',
+                location: 'New South Wales, Australia',
 
                 // x and y coordinates for the label
                 x: 1170,
@@ -901,6 +910,8 @@ const CreateCanvas = (props) => {
                 // Image files for the mountain
                 baseTexture: './img/kosciuszko.png',
                 highlightTexture: './img/kosciuszkoHighlight.png',
+                extraInfoPictureOne: './img/kosciuszkoExtra1.png',
+                extraInfoPictureTwo: './img/kosciuszkoExtra2.png',
 
                 // Hit area for the mountain
                 hitArea: [
@@ -948,6 +959,7 @@ const CreateCanvas = (props) => {
                 titletwo: 'Bulla Bulla',
                 height: '1,805m',
                 flags: '🇦🇺',
+                location: 'Victoria, Australia',
 
                 // x and y coordinates for the label
                 x: 900,
@@ -975,6 +987,8 @@ const CreateCanvas = (props) => {
                 // Image files for the mountain
                 baseTexture: './img/buller.png',
                 highlightTexture: './img/bullerHighlight.png',
+                extraInfoPictureOne: './img/bullerExtra1.png',
+                extraInfoPictureTwo: './img/bullerExtra2.png',
 
                 // Hit area for the mountain
                 hitArea: [
@@ -999,6 +1013,7 @@ const CreateCanvas = (props) => {
                 titletwo: 'Beinn Nibheis',
                 height: '1,345m',
                 flags: '🏴󠁧󠁢󠁳󠁣󠁴󠁿 🇬🇧',
+                location: 'Lochaber, Scotland',
 
                 // x and y coordinates for the label
                 x: 745,
@@ -1026,6 +1041,8 @@ const CreateCanvas = (props) => {
                 // Image files for the mountain
                 baseTexture: './img/bennevis.png',
                 highlightTexture: './img/bennevisHighlight.png',
+                extraInfoPictureOne: './img/bennevisExtra1.png',
+                extraInfoPictureTwo: './img/bennevisExtra2.png',
 
                 // Hit area for the mountain
                 hitArea: [
@@ -1049,6 +1066,7 @@ const CreateCanvas = (props) => {
                 titletwo: 'Christ the Redeemer - Mount Corcovado',
                 height: '738m',
                 flags: '🇧🇷',
+                location: 'Rio de Janeiro, Brazil',
 
                 // x and y coordinates for the label
                 x: 589,
@@ -1076,6 +1094,8 @@ const CreateCanvas = (props) => {
                 // Image files for the mountain
                 baseTexture: './img/christo.png',
                 highlightTexture: './img/christoHighlight.png',
+                extraInfoPictureOne: './img/christoExtra1.png',
+                extraInfoPictureTwo: './img/christoExtra2.png',
 
                 // Hit area for the mountain
                 hitArea: [
@@ -1099,6 +1119,7 @@ const CreateCanvas = (props) => {
                 titletwo: 'Drielandenpunt',
                 height: '323m',
                 flags: '🇳🇱 🇩🇪 🇧🇪',
+                location: 'Vaals, Netherlands (Germany/Belgium Border)',
 
                 // x and y coordinates for the label
                 x: 435,
@@ -1126,6 +1147,8 @@ const CreateCanvas = (props) => {
                 // Image files for the mountain
                 baseTexture: './img/holland.png',
                 highlightTexture: './img/hollandHighlight.png',
+                extraInfoPictureOne: './img/hollandExtra1.png',
+                extraInfoPictureTwo: './img/hollandExtra2.png',
 
                 // Hit area for the mountain
                 hitArea: [
@@ -1145,6 +1168,7 @@ const CreateCanvas = (props) => {
                 titletwo: 'برج خليفة',
                 height: '828m',
                 flags: '🇦🇪',
+                location: 'Dubai, United Arab Emirates',
 
                 // x and y coordinates for the label
                 x: 642,
@@ -1172,6 +1196,8 @@ const CreateCanvas = (props) => {
                 // Image files for the building
                 baseTexture: './img/burj.png',
                 highlightTexture: './img/burjHighlight.png',
+                extraInfoPictureOne: './img/burjExtra1.png',
+                extraInfoPictureTwo: './img/burjExtra2.png',
 
                 // Hit area for the mountain
                 hitArea: [
@@ -1190,6 +1216,7 @@ const CreateCanvas = (props) => {
                 titletwo: 'Freedom Tower',
                 height: '541m',
                 flags: '🇺🇸',
+                location: 'New York City, United States',
 
                 // x and y coordinates for the label
                 x: 505,
@@ -1217,6 +1244,8 @@ const CreateCanvas = (props) => {
                 // Image files for the building
                 baseTexture: './img/oneworldtrade.png',
                 highlightTexture: './img/oneworldtradeHighlight.png',
+                extraInfoPictureOne: './img/oneworldtradeExtra1.png',
+                extraInfoPictureTwo: './img/oneworldtradeExtra2.png',
 
                 // Hit area for the building
                 hitArea: [
@@ -1232,14 +1261,15 @@ const CreateCanvas = (props) => {
         
             {
                 name: 'nyc',
-                title: 'New York City - Average building height',
+                title: 'New York City - Avg. building height',
                 titletwo: 'The Big Apple',
                 height: '210m',
                 flags: '🇺🇸',
+                location: 'New York State, United States',
 
                 // x and y coordinates for the label
                 x: 322,
-                y: 40,
+                y: 50,
 
                 // x for final position of the label text
                 xLabel: 200,
@@ -1263,6 +1293,8 @@ const CreateCanvas = (props) => {
                 // Image files for the building
                 baseTexture: './img/nyc.png',
                 highlightTexture: './img/nycHighlight.png',
+                extraInfoPictureOne: './img/nycExtra1.png',
+                extraInfoPictureTwo: './img/nycExtra2.png',
 
                 // Hit area for the building
                 hitArea: [
@@ -1282,10 +1314,11 @@ const CreateCanvas = (props) => {
                 titletwo: 'Amazonía, Amazônia',
                 height: '60 - 100m',
                 flags: '🇧🇷 🇵🇪 🇨🇴 🇻🇪 🇧🇴 🇬🇾 🇸🇷',
+                location: 'South America',
 
                 // x and y coordinates for the label
                 x: 100,
-                y: 60,
+                y: 65,
 
                 // x for final position of the label text
                 xLabel: 300,
@@ -1309,6 +1342,8 @@ const CreateCanvas = (props) => {
                 // Image files for the trees
                 baseTexture: './img/trees.png',
                 highlightTexture: './img/treesHighlight.png',
+                extraInfoPictureOne: './img/treesExtra1.png',
+                extraInfoPictureTwo: './img/treesExtra2.png',
 
                 // Hit area for the trees
                 hitArea: [
@@ -1422,8 +1457,8 @@ const CreateCanvas = (props) => {
 
                     // Defines the shape of the extra info box
                     mountainInfoBorder.moveTo(1850, 0);
-                    mountainInfoBorder.lineTo(1850, 230);
-                    mountainInfoBorder.lineTo(1400, 230);
+                    mountainInfoBorder.lineTo(1850, 250);
+                    mountainInfoBorder.lineTo(1400, 250);
                     mountainInfoBorder.lineTo(1400, 0);
 
                     mountainInfoBorder.closePath();
@@ -1435,8 +1470,8 @@ const CreateCanvas = (props) => {
                     mountainExtraColour.lineStyle(1, 'FC6100', 1);
                     mountainExtraColour.beginFill('FC6100');
                     mountainExtraColour.moveTo(1400, 0);
-                    mountainExtraColour.lineTo(1400, 230);
-                    mountainExtraColour.lineTo(1410, 230);
+                    mountainExtraColour.lineTo(1400, 250);
+                    mountainExtraColour.lineTo(1410, 250);
                     mountainExtraColour.lineTo(1410, 0);
                     mountainExtraColour.closePath();
                     mountainExtraColour.endFill();
@@ -1447,7 +1482,7 @@ const CreateCanvas = (props) => {
                 const createInfoBoxText = (mountain) => {
 
                     mountainInfoText = new PIXI.Container();
-                    mountainInfoText.x = 1420;
+                    mountainInfoText.x = 1410;
                     mountainInfoText.y = 10;
                     mountainInfoText.alpha = 0;
 
@@ -1475,24 +1510,49 @@ const CreateCanvas = (props) => {
                     });
 
                     extraInfoTitleTwo.x = 20;
-                    extraInfoTitleTwo.y = 35;
+                    extraInfoTitleTwo.y = 30;
                     extraInfoTitleTwo.alpha = 1;
+
+                    // Creates the location text
+                    let extraInfoLocation = new PIXI.Text(mountain.location, {
+                        fontFamily: 'Helvetica',
+                        fontWeight: '100',
+                        fontSize: 18,
+                        fontStyle: 'italic',
+                        fill: 'black',
+                        align: 'left',
+                    });
+
+                    extraInfoLocation.x = 20;
+                    extraInfoLocation.y = 60;
+                    extraInfoLocation.alpha = 1;
+
 
                     // Creates the flag text
                     let extraInfoFlag = new PIXI.Text(mountain.flags, {
                         fontFamily: 'Helvetica',
                         fontWeight: '100',
-                        fontSize: 34, 
+                        fontSize: 31, 
                         fill: 'black', 
                         align: 'left',
                         direction: 'ltr',
                     });
-                    
-                    extraInfoFlag.x = 375;  // 325 FOR EVEREST  // 375 FOR OTHERS // 
-                    extraInfoFlag.y = -8;
-                    extraInfoFlag.alpha = 1;
 
-                    console.log(extraInfoFlag);
+                    extraInfoFlag.y = -3;
+
+                    if (extraInfoFlag.text.length === 4) {
+                        extraInfoFlag.x = 385;
+                    } else if (extraInfoFlag.text.length === 9 || extraInfoFlag.text.length === 19) {
+                        extraInfoFlag.x = 340;
+                    } else if (extraInfoFlag.text.length === 14) {
+                        extraInfoFlag.x = 310;
+                    } else if (extraInfoFlag.text.length === 34) {
+                        extraInfoFlag.x = 155;
+                        extraInfoFlag.y = 53;
+                    }
+                
+                    
+                    extraInfoFlag.alpha = 1;
 
                     // Creates the text for user completion
                     let userCompletion = Math.round((elevation / parseElevation(mountain.height)) * 100);
@@ -1509,13 +1569,10 @@ const CreateCanvas = (props) => {
                     });
 
                     extraInfoCompletion.x = 20;
-                    extraInfoCompletion.y = 183;
+                    extraInfoCompletion.y = 205;
                     extraInfoCompletion.alpha = 1;
 
-                    mountainInfoText.addChild(extraInfoTitle);
-                    mountainInfoText.addChild(extraInfoTitleTwo);
-                    mountainInfoText.addChild(extraInfoCompletion);
-                    mountainInfoText.addChild(extraInfoFlag);
+                    mountainInfoText.addChild(extraInfoTitle, extraInfoTitleTwo, extraInfoLocation, extraInfoFlag, extraInfoCompletion);
 
                 };
 
@@ -1523,8 +1580,8 @@ const CreateCanvas = (props) => {
                 const createExtraInfoImages = (mountain) => {
                         
                         mountainInfoPictures = new PIXI.Container();
-                        mountainInfoPictures.x = 1440;
-                        mountainInfoPictures.y = 80;
+                        mountainInfoPictures.x = 1430;
+                        mountainInfoPictures.y = 105;
                         mountainInfoPictures.alpha = 0.0;
 
                         let extraInfoPictureOneTexture = PIXI.Texture.from(mountain.extraInfoPictureOne);
