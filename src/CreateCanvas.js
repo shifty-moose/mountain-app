@@ -1667,7 +1667,8 @@ const CreateCanvas = (props) => {
             let baseTexture = PIXI.Texture.from(mountain.baseTexture);
             item.texture = baseTexture;
             appRef.current.stage.removeChild(labelContainer);
-            appRef.current.stage.removeChild(extraInfoContainer);
+            appRef.current.stage.removeChild(extraInfoBoxRef.current);
+            extraInfoBoxRef.current = null;
             handleCanvasMouseout(item);
         };
 
