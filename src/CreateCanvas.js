@@ -9,13 +9,14 @@ import './CreateCanvas.css';
 const CreateCanvas = (props) => {
     const [mapMarkerActive, setMapMarkerActive] = useState(true);
     const [isHoveringOnMountain, setIsHoveringOnMountain] = useState(false);
-    const [infoBoxActive, setInfoBoxActive] = useState(false);
     const canvasRef = useRef();
     const appRef = useRef();
     const mapMarkerRef = useRef();
     const mapMarkerLabelRef = useRef();
     const mapMarkerLineRef = useRef();
     const mapMarkerLineTwoRef = useRef();
+    const extraInfoBoxRef = useRef();
+    const extraInfoInstructionsRef = useRef();
 
     let elevation = props.elevation;
 
@@ -336,6 +337,7 @@ const CreateCanvas = (props) => {
                 titletwo: 'Sagarmāthā सगरमाथा, Zhūmùlǎngmǎ Fēng 峰',
                 height: '8,849m',
                 flags: '🇳🇵 🇨🇳',
+                location: 'Mahalangur Himal, Nepal',
 
                 // x and y coordinates for the label position
                 x: 270,
@@ -365,6 +367,8 @@ const CreateCanvas = (props) => {
                 // Image files for the mountain
                 baseTexture: './img/everest.png',
                 highlightTexture: './img/everestHighlight.png',
+                extraInfoPictureOne: './img/everestExtra1.png',
+                extraInfoPictureTwo: './img/everestExtra2.png',
 
                 // Hit area for the mountain
                 hitArea: [ 
@@ -396,6 +400,7 @@ const CreateCanvas = (props) => {
                 titletwo: 'Cerro Aconcagua',
                 height: '6,961m',
                 flags: '🇦🇷',
+                location: 'Mendoza Province, Argentina',
 
                 // x and y coordinates for the label
                 x: 490,
@@ -423,6 +428,9 @@ const CreateCanvas = (props) => {
                 // Image files for the mountain
                 baseTexture: './img/anaconooga.png',
                 highlightTexture: './img/anaconoogaHighlight.png',
+                extraInfoPictureOne: './img/aconcaguaExtra1.png',
+                extraInfoPictureTwo: './img/aconcaguaExtra2.png',
+
 
                 // Hit area for the mountain
                 hitArea: [ 
@@ -460,6 +468,7 @@ const CreateCanvas = (props) => {
                 title: 'Denali',
                 titletwo: 'Mount McKinley',
                 flags: '🇺🇸',
+                location: 'Alaska, United States',
 
                 // x and y coordinates for the label
                 x: 755,
@@ -487,6 +496,8 @@ const CreateCanvas = (props) => {
                 // Image files for the mountain
                 baseTexture: './img/mckinley.png',
                 highlightTexture: './img/mckinleyHighlight.png',
+                extraInfoPictureOne: './img/mckinleyExtra1.png',
+                extraInfoPictureTwo: './img/mckinleyExtra2.png',
 
                 // Hit area for the mountain
                 hitArea: [
@@ -538,6 +549,7 @@ const CreateCanvas = (props) => {
                 titletwo: 'Kilima Njaro',
                 height: '5,895m',
                 flags: '🇹🇿',
+                location: 'Kilimanjaro Region, Tanzania',
 
                 // x and y coordinates for the label
                 x: 1050,
@@ -565,6 +577,8 @@ const CreateCanvas = (props) => {
                 // Image files for the mountain
                 baseTexture: './img/kilimanjaro.png',
                 highlightTexture: './img/kilimanjaroHighlight.png',
+                extraInfoPictureOne: './img/kilimanjaroExtra1.png',
+                extraInfoPictureTwo: './img/kilimanjaroExtra2.png',
 
                 // Hit area for the mountain
                 hitArea: [
@@ -623,6 +637,7 @@ const CreateCanvas = (props) => {
                 titletwo: 'Эльбрус',
                 height: '5,642m',
                 flags: '🇷🇺',
+                location: 'Kabardino-Balkaria, Russia',
 
                 // x and y coordinates for the label
                 x: 1285,
@@ -650,6 +665,8 @@ const CreateCanvas = (props) => {
                 // Image files for the mountain
                 baseTexture: './img/elbrus.png',
                 highlightTexture: './img/elbrusHighlight.png',
+                extraInfoPictureOne: './img/elbrusExtra1.png',
+                extraInfoPictureTwo: './img/elbrusExtra2.png',
 
                 // Hit area for the mountain
                 hitArea: [
@@ -689,25 +706,26 @@ const CreateCanvas = (props) => {
                 titletwo: 'Vinson Massif',
                 height: '4,892m',
                 flags: '🇦🇶',
+                location: 'Ellsworth Mountains, Antarctica',
 
                 // x and y coordinates for the label
                 x: 1425,
-                y: 150,
+                y: 270,
 
                 // x for final position of the label text
-                xLabel: -370,
+                xLabel: 170,
 
                 // x and y coordinates for the horizontal line to start
-                xStart: -90,
-                yStart: 168,
+                xStart: 30,
+                yStart: 285,
 
                 // x and y coordinates for the horizontal line to end
-                xEnd: 30,
-                yEnd: 168,
+                xEnd: 155,
+                yEnd: 285,
 
                 // x and y coordinates for the vetical line to start
                 xVerticalStart: 30,
-                yVerticalStart: 168,
+                yVerticalStart: 285,
 
                 // x and y coordinates for the vetical line to end
                 xVerticalEnd: 30,
@@ -716,6 +734,8 @@ const CreateCanvas = (props) => {
                 // Image files for the mountain
                 baseTexture: './img/vinson.png',
                 highlightTexture: './img/vinsonHighlight.png',
+                extraInfoPictureOne: './img/vinsonExtra1.png',
+                extraInfoPictureTwo: './img/vinsonExtra2.png',
 
                 // Hit area for the mountain
                 hitArea: [
@@ -741,25 +761,26 @@ const CreateCanvas = (props) => {
                 titletwo: 'Carstensz Pyramid',
                 height: '4,884m',
                 flags: '🇮🇩',
+                location: 'Papua, Indonesia',
 
                 // x and y coordinates for the label
-                x: 1660,
-                y: 180,
+                x: 1710,
+                y: 280,
 
                 // x for final position of the label text
                 xLabel: -350,
 
                 // x and y coordinates for the horizontal line to start
                 xStart: -90,
-                yStart: 193,
+                yStart: 295,
 
                 // x and y coordinates for the horizontal line to end
                 xEnd: 30,
-                yEnd: 193,
+                yEnd: 295,
 
                 // x and y coordinates for the vetical line to start
                 xVerticalStart: 30,
-                yVerticalStart: 193,
+                yVerticalStart: 295,
 
                 // x and y coordinates for the vetical line to end
                 xVerticalEnd: 30,
@@ -768,6 +789,8 @@ const CreateCanvas = (props) => {
                 // Image files for the mountain
                 baseTexture: './img/puncakjaya.png',
                 highlightTexture: './img/puncakjayaHighlight.png',
+                extraInfoPictureOne: './img/puncakjayaExtra1.png',
+                extraInfoPictureTwo: './img/puncakjayaExtra2.png',
 
                 // Hit area for the mountain
                 hitArea: [
@@ -805,16 +828,17 @@ const CreateCanvas = (props) => {
                 titletwo: '富士山',
                 height: '3,776m',
                 flags: '🇯🇵',
+                location: 'Honshu, Japan',
 
                 // x and y coordinates for the label
-                x: 1380,
+                x: 1360,
                 y: 138,
 
                 // x for final position of the label text
                 xLabel: -250,
 
                 // x and y coordinates for the horizontal line to start
-                xStart: -5,
+                xStart: -45,
                 yStart: 153,
 
                 // x and y coordinates for the horizontal line to end
@@ -832,6 +856,8 @@ const CreateCanvas = (props) => {
                 // Image files for the mountain
                 baseTexture: './img/fuji.png',
                 highlightTexture: './img/fujiHighlight.png',
+                extraInfoPictureOne: './img/fujiExtra1.png',
+                extraInfoPictureTwo: './img/fujiExtra2.png',
 
                 // Hit area for the mountain
                 hitArea: [
@@ -857,6 +883,7 @@ const CreateCanvas = (props) => {
                 titletwo: 'Jagungal',
                 height: '2,228m',
                 flags: '🇦🇺',
+                location: 'New South Wales, Australia',
 
                 // x and y coordinates for the label
                 x: 1170,
@@ -884,6 +911,8 @@ const CreateCanvas = (props) => {
                 // Image files for the mountain
                 baseTexture: './img/kosciuszko.png',
                 highlightTexture: './img/kosciuszkoHighlight.png',
+                extraInfoPictureOne: './img/kosciuszkoExtra1.png',
+                extraInfoPictureTwo: './img/kosciuszkoExtra2.png',
 
                 // Hit area for the mountain
                 hitArea: [
@@ -931,6 +960,7 @@ const CreateCanvas = (props) => {
                 titletwo: 'Bulla Bulla',
                 height: '1,805m',
                 flags: '🇦🇺',
+                location: 'Victoria, Australia',
 
                 // x and y coordinates for the label
                 x: 900,
@@ -958,6 +988,8 @@ const CreateCanvas = (props) => {
                 // Image files for the mountain
                 baseTexture: './img/buller.png',
                 highlightTexture: './img/bullerHighlight.png',
+                extraInfoPictureOne: './img/bullerExtra1.png',
+                extraInfoPictureTwo: './img/bullerExtra2.png',
 
                 // Hit area for the mountain
                 hitArea: [
@@ -982,6 +1014,7 @@ const CreateCanvas = (props) => {
                 titletwo: 'Beinn Nibheis',
                 height: '1,345m',
                 flags: '🏴󠁧󠁢󠁳󠁣󠁴󠁿 🇬🇧',
+                location: 'Lochaber, Scotland',
 
                 // x and y coordinates for the label
                 x: 745,
@@ -1009,6 +1042,8 @@ const CreateCanvas = (props) => {
                 // Image files for the mountain
                 baseTexture: './img/bennevis.png',
                 highlightTexture: './img/bennevisHighlight.png',
+                extraInfoPictureOne: './img/bennevisExtra1.png',
+                extraInfoPictureTwo: './img/bennevisExtra2.png',
 
                 // Hit area for the mountain
                 hitArea: [
@@ -1032,6 +1067,7 @@ const CreateCanvas = (props) => {
                 titletwo: 'Christ the Redeemer - Mount Corcovado',
                 height: '738m',
                 flags: '🇧🇷',
+                location: 'Rio de Janeiro, Brazil',
 
                 // x and y coordinates for the label
                 x: 589,
@@ -1059,6 +1095,8 @@ const CreateCanvas = (props) => {
                 // Image files for the mountain
                 baseTexture: './img/christo.png',
                 highlightTexture: './img/christoHighlight.png',
+                extraInfoPictureOne: './img/christoExtra1.png',
+                extraInfoPictureTwo: './img/christoExtra2.png',
 
                 // Hit area for the mountain
                 hitArea: [
@@ -1082,6 +1120,7 @@ const CreateCanvas = (props) => {
                 titletwo: 'Drielandenpunt',
                 height: '323m',
                 flags: '🇳🇱 🇩🇪 🇧🇪',
+                location: 'Vaals, Netherlands (Germany/Belgium Border)',
 
                 // x and y coordinates for the label
                 x: 435,
@@ -1109,6 +1148,8 @@ const CreateCanvas = (props) => {
                 // Image files for the mountain
                 baseTexture: './img/holland.png',
                 highlightTexture: './img/hollandHighlight.png',
+                extraInfoPictureOne: './img/hollandExtra1.png',
+                extraInfoPictureTwo: './img/hollandExtra2.png',
 
                 // Hit area for the mountain
                 hitArea: [
@@ -1128,6 +1169,7 @@ const CreateCanvas = (props) => {
                 titletwo: 'برج خليفة',
                 height: '828m',
                 flags: '🇦🇪',
+                location: 'Dubai, United Arab Emirates',
 
                 // x and y coordinates for the label
                 x: 642,
@@ -1155,6 +1197,8 @@ const CreateCanvas = (props) => {
                 // Image files for the building
                 baseTexture: './img/burj.png',
                 highlightTexture: './img/burjHighlight.png',
+                extraInfoPictureOne: './img/burjExtra1.png',
+                extraInfoPictureTwo: './img/burjExtra2.png',
 
                 // Hit area for the mountain
                 hitArea: [
@@ -1173,6 +1217,7 @@ const CreateCanvas = (props) => {
                 titletwo: 'Freedom Tower',
                 height: '541m',
                 flags: '🇺🇸',
+                location: 'New York City, United States',
 
                 // x and y coordinates for the label
                 x: 505,
@@ -1200,6 +1245,8 @@ const CreateCanvas = (props) => {
                 // Image files for the building
                 baseTexture: './img/oneworldtrade.png',
                 highlightTexture: './img/oneworldtradeHighlight.png',
+                extraInfoPictureOne: './img/oneworldtradeExtra1.png',
+                extraInfoPictureTwo: './img/oneworldtradeExtra2.png',
 
                 // Hit area for the building
                 hitArea: [
@@ -1215,14 +1262,15 @@ const CreateCanvas = (props) => {
         
             {
                 name: 'nyc',
-                title: 'New York City - Average building height',
+                title: 'New York City - Avg. building height',
                 titletwo: 'The Big Apple',
                 height: '210m',
                 flags: '🇺🇸',
+                location: 'New York State, United States',
 
                 // x and y coordinates for the label
                 x: 322,
-                y: 40,
+                y: 50,
 
                 // x for final position of the label text
                 xLabel: 200,
@@ -1246,6 +1294,8 @@ const CreateCanvas = (props) => {
                 // Image files for the building
                 baseTexture: './img/nyc.png',
                 highlightTexture: './img/nycHighlight.png',
+                extraInfoPictureOne: './img/nycExtra1.png',
+                extraInfoPictureTwo: './img/nycExtra2.png',
 
                 // Hit area for the building
                 hitArea: [
@@ -1265,10 +1315,11 @@ const CreateCanvas = (props) => {
                 titletwo: 'Amazonía, Amazônia',
                 height: '60 - 100m',
                 flags: '🇧🇷 🇵🇪 🇨🇴 🇻🇪 🇧🇴 🇬🇾 🇸🇷',
+                location: 'South America',
 
                 // x and y coordinates for the label
                 x: 100,
-                y: 60,
+                y: 65,
 
                 // x for final position of the label text
                 xLabel: 300,
@@ -1292,6 +1343,8 @@ const CreateCanvas = (props) => {
                 // Image files for the trees
                 baseTexture: './img/trees.png',
                 highlightTexture: './img/treesHighlight.png',
+                extraInfoPictureOne: './img/treesExtra1.png',
+                extraInfoPictureTwo: './img/treesExtra2.png',
 
                 // Hit area for the trees
                 hitArea: [
@@ -1306,6 +1359,50 @@ const CreateCanvas = (props) => {
             },
         ];
 
+        // Creating the instruction box
+        const createInstructionBox = () => {
+            extraInfoInstructionsRef.current = new PIXI.Container();
+            extraInfoInstructionsRef.current.x = 0;
+            extraInfoInstructionsRef.current.y = 0;
+            appRef.current.stage.addChild(extraInfoInstructionsRef.current);
+
+            let instructionBoxGraphic = new PIXI.Graphics();
+            instructionBoxGraphic.lineStyle(1, '0xEEEEEE', 1);
+            instructionBoxGraphic.beginFill('0xEEEEEE');
+            instructionBoxGraphic.moveTo(1400, 0);
+            instructionBoxGraphic.lineTo(1850, 0);
+            instructionBoxGraphic.lineTo(1850, 35);
+            instructionBoxGraphic.lineTo(1400, 35);
+            instructionBoxGraphic.closePath();
+            instructionBoxGraphic.endFill();
+
+            let instructionBoxGraphicDetail = new PIXI.Graphics();
+            instructionBoxGraphicDetail.lineStyle(1, 'FC6100', 1);
+            instructionBoxGraphicDetail.beginFill('FC6100');
+            instructionBoxGraphicDetail.moveTo(1400, 0);
+            instructionBoxGraphicDetail.lineTo(1410, 0);
+            instructionBoxGraphicDetail.lineTo(1410, 35);
+            instructionBoxGraphicDetail.lineTo(1400, 35);
+            instructionBoxGraphicDetail.closePath();
+            instructionBoxGraphicDetail.endFill();
+
+            let instructionText = new PIXI.Text('Click on a mountain to see more information ▸', {
+                fontFamily: 'Helvetica',
+                fontWeight: '100',
+                fontSize: 20,
+                fill: 'black',
+                align: 'left',
+            });
+
+            instructionText.x = 1425;
+            instructionText.y = 5;
+            instructionText.alpha = 1;
+
+            extraInfoInstructionsRef.current.addChild(instructionBoxGraphic, instructionBoxGraphicDetail, instructionText);
+        };
+
+        createInstructionBox();
+
         // Creates the label container for text and lines
         let labelContainer;
 
@@ -1313,9 +1410,7 @@ const CreateCanvas = (props) => {
         const createMountainLabel = item => {
 
             // THE ITEM IS A SPRITE
-
             let mountain = listOfMountains.find(element => element.name === item.name);
-
 
             // Creates the label container
             labelContainer = new PIXI.Container();
@@ -1374,74 +1469,203 @@ const CreateCanvas = (props) => {
 
             let mountain;
             let mountainInfoBorder;
-            let mountainMoreInfo;
-            let mountainFlags;
+            let mountainExtraColour;
+            let mountainInfoText;
+            let mountainInfoPictures;
 
-            if (!infoBoxActive) { 
+            const parseElevation = (height) => {
+                let parsedHeight = height.replace(/[,m]/g, '');
+                parseInt(parsedHeight);
+                return parsedHeight;
+            };
 
-                console.log("Creating info box");
-                setInfoBoxActive(true);
+            if (!extraInfoBoxRef.current) { 
+
+                // Creates the extra info container
+                extraInfoBoxRef.current = new PIXI.Container();
+                extraInfoBoxRef.current.x = 0;
+                appRef.current.stage.addChild(extraInfoBoxRef.current);
 
                 mountain = listOfMountains.find(element => element.name === item.name);
 
                 // Creates the extra info box graphic
-                mountainInfoBorder = new PIXI.Graphics();
-                mountainInfoBorder.lineStyle(1, '0xEEEEEE', 1);
-                mountainInfoBorder.beginFill('0xEEEEEE'); 
+                const createExtraInfoBox = (mountain) => {
+                    mountainInfoBorder = new PIXI.Graphics();
+                    mountainInfoBorder.lineStyle(1, '0xEEEEEE', 1);
+                    mountainInfoBorder.beginFill('0xEEEEEE'); 
 
-                if (mountain.name === 'fuji') {
-                    mountainInfoBorder.moveTo(mountain.xLabel - 15, mountain.y + 40);
-                    mountainInfoBorder.lineTo(mountain.xLabel + 260, mountain.y + 40);
-                    mountainInfoBorder.lineTo(mountain.xLabel + 260, mountain.y + 120);
-                    mountainInfoBorder.lineTo(mountain.xLabel - 15, mountain.y + 120);
-                } else {
-                    mountainInfoBorder.moveTo(mountain.xLabel - 15, mountain.y + 40);
-                    mountainInfoBorder.lineTo(mountain.xLabel + 330, mountain.y + 40);
-                    mountainInfoBorder.lineTo(mountain.xLabel + 330, mountain.y + 120);
-                    mountainInfoBorder.lineTo(mountain.xLabel - 15, mountain.y + 120);
+                    // Defines the shape of the extra info box
+                    mountainInfoBorder.moveTo(1850, 0);
+                    mountainInfoBorder.lineTo(1850, 250);
+                    mountainInfoBorder.lineTo(1400, 250);
+                    mountainInfoBorder.lineTo(1400, 0);
+
+                    mountainInfoBorder.closePath();
+                    mountainInfoBorder.endFill(); 
+                    mountainInfoBorder.alpha = 1;
+
+                    // Defining a colourful border line
+                    mountainExtraColour = new PIXI.Graphics();
+                    mountainExtraColour.lineStyle(1, 'FC6100', 1);
+                    mountainExtraColour.beginFill('FC6100');
+                    mountainExtraColour.moveTo(1400, 0);
+                    mountainExtraColour.lineTo(1400, 250);
+                    mountainExtraColour.lineTo(1410, 250);
+                    mountainExtraColour.lineTo(1410, 0);
+                    mountainExtraColour.closePath();
+                    mountainExtraColour.endFill();
+                    mountainExtraColour.alpha = 1;
                 };
 
-                mountainInfoBorder.closePath();
-                mountainInfoBorder.endFill(); 
-                mountainInfoBorder.alpha = 0;
+                // Creates the extra info box text
+                const createInfoBoxText = (mountain) => {
 
-                // Extra info text
-                mountainMoreInfo = new PIXI.Text(mountain.titletwo, {
-                    fontFamily: 'Helvetica',
-                    fontWeight: '100',
-                    fontSize: 16, 
-                    fill: 'black', 
-                    align: 'left',
-                    fontStyle: 'italic',
-                });
-                mountainMoreInfo.y = mountain.y + 52;
-                mountainMoreInfo.x = mountain.xLabel;
-                mountainMoreInfo.alpha = 0;
+                    mountainInfoText = new PIXI.Container();
+                    mountainInfoText.x = 1410;
+                    mountainInfoText.y = 10;
+                    mountainInfoText.alpha = 0;
 
-                // Extra info flags
-                mountainFlags = new PIXI.Text(mountain.flags, {
-                    fontSize: 36, 
-                    align: 'left',
+                    // Creates the title text
+                    let extraInfoTitle = new PIXI.Text(mountain.title, {
+                        fontFamily: 'Helvetica',
+                        fontWeight: '500',
+                        fontSize: 21, 
+                        fill: 'black', 
+                        align: 'left',
+                    });
+
+                    extraInfoTitle.x = 20;
+                    extraInfoTitle.y = 0;
+                    extraInfoTitle.alpha = 1;
+
+                    // Creates the title 2 text
+                    let extraInfoTitleTwo = new PIXI.Text(mountain.titletwo, {
+                        fontFamily: 'Helvetica',
+                        fontWeight: '100',
+                        fontSize: 19, 
+                        fontStyle: 'italic',
+                        fill: 'black', 
+                        align: 'left',
+                    });
+
+                    extraInfoTitleTwo.x = 20;
+                    extraInfoTitleTwo.y = 30;
+                    extraInfoTitleTwo.alpha = 1;
+
+                    // Creates the location text
+                    let extraInfoLocation = new PIXI.Text(mountain.location, {
+                        fontFamily: 'Helvetica',
+                        fontWeight: '100',
+                        fontSize: 18,
+                        fontStyle: 'italic',
+                        fill: 'black',
+                        align: 'left',
+                    });
+
+                    extraInfoLocation.x = 20;
+                    extraInfoLocation.y = 60;
+                    extraInfoLocation.alpha = 1;
+
+
+                    // Creates the flag text
+                    let extraInfoFlag = new PIXI.Text(mountain.flags, {
+                        fontFamily: 'Helvetica',
+                        fontWeight: '100',
+                        fontSize: 31, 
+                        fill: 'black', 
+                        align: 'left',
+                        direction: 'ltr',
+                    });
+
+                    extraInfoFlag.y = -3;
+
+                    if (extraInfoFlag.text.length === 4) {
+                        extraInfoFlag.x = 385;
+                    } else if (extraInfoFlag.text.length === 9 || extraInfoFlag.text.length === 19) {
+                        extraInfoFlag.x = 340;
+                    } else if (extraInfoFlag.text.length === 14) {
+                        extraInfoFlag.x = 310;
+                    } else if (extraInfoFlag.text.length === 34) {
+                        extraInfoFlag.x = 155;
+                        extraInfoFlag.y = 53;
+                    }
                 
-                });
-                mountainFlags.x = mountain.xLabel;
-                mountainFlags.y = mountain.y + 77;
-                mountainFlags.alpha = 0;
+                    
+                    extraInfoFlag.alpha = 1;
 
-                gsap.to(mountainInfoBorder, { alpha: 1, duration: 0.5, delay: 0 });
-                gsap.to(mountainMoreInfo, { alpha: 1, duration: 0.5, delay: 0 });
-                gsap.to(mountainFlags, { alpha: 1, duration: 0.5, delay: 0 });
+                    // Creates the text for user completion
+                    let userCompletion = Math.round((elevation / parseElevation(mountain.height)) * 100);
+                    if (userCompletion > 100) {
+                        userCompletion = 100;
+                    };
 
-                labelContainer.addChild(mountainInfoBorder);
-                labelContainer.addChild(mountainFlags);
-                labelContainer.addChild(mountainMoreInfo);
+                    let extraInfoCompletion = new PIXI.Text(`You have completed ${userCompletion}% of this mountain`, {
+                        fontFamily: 'Helvetica',
+                        fontWeight: '100',
+                        fontSize: 18, 
+                        fill: 'black', 
+                        align: 'left',
+                    });
 
-                console.log(infoBoxActive);
+                    extraInfoCompletion.x = 20;
+                    extraInfoCompletion.y = 205;
+                    extraInfoCompletion.alpha = 1;
+
+                    mountainInfoText.addChild(extraInfoTitle, extraInfoTitleTwo, extraInfoLocation, extraInfoFlag, extraInfoCompletion);
+
+                };
+
+                // Creates the extra images of the mountains in the info box
+                const createExtraInfoImages = (mountain) => {
+                        
+                        mountainInfoPictures = new PIXI.Container();
+                        mountainInfoPictures.x = 1430;
+                        mountainInfoPictures.y = 105;
+                        mountainInfoPictures.alpha = 0.0;
+
+                        let extraInfoPictureOneTexture = PIXI.Texture.from(mountain.extraInfoPictureOne);
+                        let extraInfoPictureOne = new PIXI.Sprite(extraInfoPictureOneTexture);
+                        extraInfoPictureOne.x = 0;
+                        extraInfoPictureOne.y = 0;
+                        extraInfoPictureOne.width = 190;
+                        extraInfoPictureOne.height = 100;
+
+                        let extraInfoPictureTwoTexture = PIXI.Texture.from(mountain.extraInfoPictureTwo);
+                        let extraInfoPictureTwo = new PIXI.Sprite(extraInfoPictureTwoTexture);
+                        extraInfoPictureTwo.x = 200;
+                        extraInfoPictureTwo.y = 0;
+                        extraInfoPictureTwo.width = 190;
+                        extraInfoPictureTwo.height = 100;
+
+
+                        mountainInfoPictures.addChild(extraInfoPictureOne);
+                        mountainInfoPictures.addChild(extraInfoPictureTwo);
+
+                };
+
+                createExtraInfoBox(mountain);
+                createInfoBoxText(mountain);
+                createExtraInfoImages(mountain);
+
+                gsap.fromTo(extraInfoInstructionsRef.current, { alpha: 1 }, { alpha: 0, duration: 0.5, delay: 0 });
+
+                gsap.fromTo(mountainInfoBorder, { alpha: 0, y: -100 }, { alpha: 1, y: mountainInfoBorder.y, duration: 0.5, delay: 0.0 });
+                gsap.fromTo(mountainExtraColour, { alpha: 0, y: -100 }, { alpha: 1, y: mountainExtraColour.y, duration: 0.5, delay: 0 });
+                gsap.fromTo(mountainInfoText, { alpha: 0, y: -100 }, { alpha: 1, y: mountainInfoText.y, duration: 0.5, delay: 0 });
+                gsap.fromTo(mountainInfoPictures, { alpha: 0, y: -100 }, { alpha: 0.7, y: mountainInfoPictures.y, duration: 0.5, delay: 0 });
+
+                extraInfoBoxRef.current.addChild(mountainInfoBorder, mountainExtraColour, mountainInfoText, mountainInfoPictures);
 
             } else {
-                gsap.to(mountainInfoBorder, { alpha: 0, duration: 0.5, delay: 0 });
-                gsap.to(mountainMoreInfo, { alpha: 0, duration: 0.5, delay: 0 });
-                gsap.to(mountainFlags, { alpha: 0, duration: 0.5, delay: 0 });
+                gsap.fromTo(extraInfoBoxRef.current, { alpha: 1, y: extraInfoBoxRef.current.y }, { alpha: 0, y: -100, duration: 0.5, delay:0 });
+
+                gsap.fromTo(extraInfoInstructionsRef.current, { alpha: extraInfoInstructionsRef.current.alpha  }, { alpha: 1, duration: 1, delay: 0 });
+
+                gsap.delayedCall(0.5, () => {
+                    appRef.current.stage.removeChild(extraInfoBoxRef.current);
+                    extraInfoBoxRef.current = null;
+                });
+            
             };
 
         };
@@ -1490,6 +1714,9 @@ const CreateCanvas = (props) => {
             let baseTexture = PIXI.Texture.from(mountain.baseTexture);
             item.texture = baseTexture;
             appRef.current.stage.removeChild(labelContainer);
+            appRef.current.stage.removeChild(extraInfoBoxRef.current);
+            gsap.fromTo(extraInfoInstructionsRef.current, { alpha: extraInfoInstructionsRef.current.alpha  }, { alpha: 1, duration: 0.5, delay: 0.2 });
+            extraInfoBoxRef.current = null;
             handleCanvasMouseout(item);
         };
 
@@ -1517,7 +1744,6 @@ const CreateCanvas = (props) => {
 
             appRef.current.stage.addChild(mountain);
         });      
-        
 
         return () => {
             appRef.current.destroy();
