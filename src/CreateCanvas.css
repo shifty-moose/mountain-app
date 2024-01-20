@@ -1,12 +1,12 @@
 canvas {
     display: flex;
-    width: 80%;
+    width: 75%;
     margin: 0;
     padding: 0;
     height: 100%;
     border-top: none;
     margin: auto;
     margin-bottom: 0;
-    padding-top: 1rem;
+    padding-top: 3rem;
     place-content: center;
 }

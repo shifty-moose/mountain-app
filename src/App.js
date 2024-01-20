@@ -35,11 +35,7 @@ function App() {
     <div>
       <Header />
 
-      <form onSubmit={handleSubmit}>
-        <input type="text" name="name" value={name} onChange={handleChange} />
-        <input type="text" name="elevation" value={elevation} onChange={handleChange} />
-        <button type="submit">Submit</button>
-      </form>
+
 
             <AppInfo 
             name={name}
@@ -49,6 +45,12 @@ function App() {
             <CreateCanvas 
             elevation= {elevation}
             />
+
+            <form onSubmit={handleSubmit}>
+              <input type="text" name="name" value={name} onChange={handleChange} />
+              <input type="text" name="elevation" value={elevation} onChange={handleChange} />
+              <button type="submit">Submit</button>
+            </form>
 
             <div className='footerDiv'>
               

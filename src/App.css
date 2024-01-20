@@ -6,6 +6,7 @@ body {
   overflow: scroll;
   font-family: 'Inter', sans-serif;
   background-color: rgb(255, 255, 255);
+  overflow: hidden;
 }
 
 * {
@@ -23,7 +24,7 @@ canvas {
 }
 
 .appDivText {
-  width: 80%;
+  width: 75%;
   display: flex;
   margin: auto;
   margin-top: 4rem;
