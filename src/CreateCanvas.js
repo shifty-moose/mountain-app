@@ -16,6 +16,7 @@ const CreateCanvas = (props) => {
     const mapMarkerLabelRef = useRef();
     const mapMarkerLineRef = useRef();
     const mapMarkerLineTwoRef = useRef();
+    const extraInfoBoxRef = useRef();
 
     let elevation = props.elevation;
 
@@ -1430,22 +1431,19 @@ const CreateCanvas = (props) => {
             let mountainInfoText;
             let mountainInfoPictures;
 
-
             const parseElevation = (height) => {
                 let parsedHeight = height.replace(/[,m]/g, '');
                 parseInt(parsedHeight);
                 return parsedHeight;
             };
 
-            // Creates the extra info container
-            extraInfoContainer = new PIXI.Container();
-            extraInfoContainer.x = 0;
-            appRef.current.stage.addChild(extraInfoContainer);
-            
 
-            if (!infoBoxActive) { 
+            if (!extraInfoBoxRef.current) { 
 
-                setInfoBoxActive(true);
+                // Creates the extra info container
+                extraInfoBoxRef.current = new PIXI.Container();
+                extraInfoBoxRef.current.x = 0;
+                appRef.current.stage.addChild(extraInfoBoxRef.current);
 
                 mountain = listOfMountains.find(element => element.name === item.name);
 
@@ -1614,14 +1612,17 @@ const CreateCanvas = (props) => {
                 gsap.to(mountainInfoText, { alpha: 1, duration: 0.5, delay: 0 });
                 gsap.to(mountainInfoPictures, { alpha: 0.7, duration: 0.5, delay: 0 });
 
-                extraInfoContainer.addChild(mountainInfoBorder, mountainExtraColour, mountainInfoText, mountainInfoPictures);
+                extraInfoBoxRef.current.addChild(mountainInfoBorder, mountainExtraColour, mountainInfoText, mountainInfoPictures);
 
-                console.log(infoBoxActive);
+                setInfoBoxActive(true);
+
 
             } else {
-                gsap.to(mountainInfoBorder, { alpha: 0, duration: 0.5, delay: 0 });
-                gsap.to(mountainExtraColour, { alpha: 0, duration: 0.5, delay: 0 });
-                gsap.to(mountainInfoText, { alpha: 0, duration: 0.5, delay: 0 });
+                gsap.to(extraInfoBoxRef.current, { alpha: 0, duration: 0.5, delay: 0 });
+                gsap.delayedCall(0.5, () => {
+                    appRef.current.stage.removeChild(extraInfoBoxRef.current);
+                    extraInfoBoxRef.current = null;
+                });
             };
 
         };
@@ -1698,7 +1699,6 @@ const CreateCanvas = (props) => {
 
             appRef.current.stage.addChild(mountain);
         });      
-        
 
         return () => {
             appRef.current.destroy();
