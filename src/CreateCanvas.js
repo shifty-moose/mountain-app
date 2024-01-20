@@ -365,6 +365,8 @@ const CreateCanvas = (props) => {
                 // Image files for the mountain
                 baseTexture: './img/everest.png',
                 highlightTexture: './img/everestHighlight.png',
+                extraInfoPictureOne: './img/everestExtra1.png',
+                extraInfoPictureTwo: './img/everestExtra2.png',
 
                 // Hit area for the mountain
                 hitArea: [ 
@@ -423,6 +425,9 @@ const CreateCanvas = (props) => {
                 // Image files for the mountain
                 baseTexture: './img/anaconooga.png',
                 highlightTexture: './img/anaconoogaHighlight.png',
+                extraInfoPictureOne: './img/aconcaguaExtra1.png',
+                extraInfoPictureTwo: './img/aconcaguaExtra2.png',
+
 
                 // Hit area for the mountain
                 hitArea: [ 
@@ -487,6 +492,8 @@ const CreateCanvas = (props) => {
                 // Image files for the mountain
                 baseTexture: './img/mckinley.png',
                 highlightTexture: './img/mckinleyHighlight.png',
+                extraInfoPictureOne: './img/mckinleyExtra1.png',
+                extraInfoPictureTwo: './img/mckinleyExtra2.png',
 
                 // Hit area for the mountain
                 hitArea: [
@@ -565,6 +572,8 @@ const CreateCanvas = (props) => {
                 // Image files for the mountain
                 baseTexture: './img/kilimanjaro.png',
                 highlightTexture: './img/kilimanjaroHighlight.png',
+                extraInfoPictureOne: './img/kilimanjaroExtra1.png',
+                extraInfoPictureTwo: './img/kilimanjaroExtra2.png',
 
                 // Hit area for the mountain
                 hitArea: [
@@ -650,6 +659,8 @@ const CreateCanvas = (props) => {
                 // Image files for the mountain
                 baseTexture: './img/elbrus.png',
                 highlightTexture: './img/elbrusHighlight.png',
+                extraInfoPictureOne: './img/elbrusExtra1.png',
+                extraInfoPictureTwo: './img/elbrusExtra2.png',
 
                 // Hit area for the mountain
                 hitArea: [
@@ -716,6 +727,8 @@ const CreateCanvas = (props) => {
                 // Image files for the mountain
                 baseTexture: './img/vinson.png',
                 highlightTexture: './img/vinsonHighlight.png',
+                extraInfoPictureOne: './img/vinsonExtra1.png',
+                extraInfoPictureTwo: './img/vinsonExtra2.png',
 
                 // Hit area for the mountain
                 hitArea: [
@@ -768,6 +781,8 @@ const CreateCanvas = (props) => {
                 // Image files for the mountain
                 baseTexture: './img/puncakjaya.png',
                 highlightTexture: './img/puncakjayaHighlight.png',
+                extraInfoPictureOne: './img/puncakjayaExtra1.png',
+                extraInfoPictureTwo: './img/puncakjayaExtra2.png',
 
                 // Hit area for the mountain
                 hitArea: [
@@ -832,6 +847,8 @@ const CreateCanvas = (props) => {
                 // Image files for the mountain
                 baseTexture: './img/fuji.png',
                 highlightTexture: './img/fujiHighlight.png',
+                extraInfoPictureOne: './img/fujiExtra1.png',
+                extraInfoPictureTwo: './img/fujiExtra2.png',
 
                 // Hit area for the mountain
                 hitArea: [
@@ -1309,13 +1326,13 @@ const CreateCanvas = (props) => {
         // Creates the label container for text and lines
         let labelContainer;
 
+        let extraInfoContainer;
+
         // Creates the label for the mountain (Text and Lines) and inserts it into the labelContainer
         const createMountainLabel = item => {
 
             // THE ITEM IS A SPRITE
-
             let mountain = listOfMountains.find(element => element.name === item.name);
-
 
             // Creates the label container
             labelContainer = new PIXI.Container();
@@ -1374,74 +1391,180 @@ const CreateCanvas = (props) => {
 
             let mountain;
             let mountainInfoBorder;
-            let mountainMoreInfo;
-            let mountainFlags;
+            let mountainExtraColour;
+            let mountainInfoText;
+            let mountainInfoPictures;
+
+
+            const parseElevation = (height) => {
+                let parsedHeight = height.replace(/[,m]/g, '');
+                parseInt(parsedHeight);
+                return parsedHeight;
+            };
+
+            // Creates the extra info container
+            extraInfoContainer = new PIXI.Container();
+            extraInfoContainer.x = 0;
+            appRef.current.stage.addChild(extraInfoContainer);
+            
 
             if (!infoBoxActive) { 
 
-                console.log("Creating info box");
                 setInfoBoxActive(true);
 
                 mountain = listOfMountains.find(element => element.name === item.name);
 
                 // Creates the extra info box graphic
-                mountainInfoBorder = new PIXI.Graphics();
-                mountainInfoBorder.lineStyle(1, '0xEEEEEE', 1);
-                mountainInfoBorder.beginFill('0xEEEEEE'); 
+                const createExtraInfoBox = (mountain) => {
+                    mountainInfoBorder = new PIXI.Graphics();
+                    mountainInfoBorder.lineStyle(1, '0xEEEEEE', 1);
+                    mountainInfoBorder.beginFill('0xEEEEEE'); 
 
-                if (mountain.name === 'fuji') {
-                    mountainInfoBorder.moveTo(mountain.xLabel - 15, mountain.y + 40);
-                    mountainInfoBorder.lineTo(mountain.xLabel + 260, mountain.y + 40);
-                    mountainInfoBorder.lineTo(mountain.xLabel + 260, mountain.y + 120);
-                    mountainInfoBorder.lineTo(mountain.xLabel - 15, mountain.y + 120);
-                } else {
-                    mountainInfoBorder.moveTo(mountain.xLabel - 15, mountain.y + 40);
-                    mountainInfoBorder.lineTo(mountain.xLabel + 330, mountain.y + 40);
-                    mountainInfoBorder.lineTo(mountain.xLabel + 330, mountain.y + 120);
-                    mountainInfoBorder.lineTo(mountain.xLabel - 15, mountain.y + 120);
+                    // Defines the shape of the extra info box
+                    mountainInfoBorder.moveTo(1850, 0);
+                    mountainInfoBorder.lineTo(1850, 230);
+                    mountainInfoBorder.lineTo(1400, 230);
+                    mountainInfoBorder.lineTo(1400, 0);
+
+                    mountainInfoBorder.closePath();
+                    mountainInfoBorder.endFill(); 
+                    mountainInfoBorder.alpha = 0;
+
+                    // Defining a colourful border line
+                    mountainExtraColour = new PIXI.Graphics();
+                    mountainExtraColour.lineStyle(1, 'FC6100', 1);
+                    mountainExtraColour.beginFill('FC6100');
+                    mountainExtraColour.moveTo(1400, 0);
+                    mountainExtraColour.lineTo(1400, 230);
+                    mountainExtraColour.lineTo(1410, 230);
+                    mountainExtraColour.lineTo(1410, 0);
+                    mountainExtraColour.closePath();
+                    mountainExtraColour.endFill();
+                    mountainExtraColour.alpha = 0;
                 };
 
-                mountainInfoBorder.closePath();
-                mountainInfoBorder.endFill(); 
-                mountainInfoBorder.alpha = 0;
+                // Creates the extra info box text
+                const createInfoBoxText = (mountain) => {
 
-                // Extra info text
-                mountainMoreInfo = new PIXI.Text(mountain.titletwo, {
-                    fontFamily: 'Helvetica',
-                    fontWeight: '100',
-                    fontSize: 16, 
-                    fill: 'black', 
-                    align: 'left',
-                    fontStyle: 'italic',
-                });
-                mountainMoreInfo.y = mountain.y + 52;
-                mountainMoreInfo.x = mountain.xLabel;
-                mountainMoreInfo.alpha = 0;
+                    mountainInfoText = new PIXI.Container();
+                    mountainInfoText.x = 1420;
+                    mountainInfoText.y = 10;
+                    mountainInfoText.alpha = 0;
 
-                // Extra info flags
-                mountainFlags = new PIXI.Text(mountain.flags, {
-                    fontSize: 36, 
-                    align: 'left',
-                
-                });
-                mountainFlags.x = mountain.xLabel;
-                mountainFlags.y = mountain.y + 77;
-                mountainFlags.alpha = 0;
+                    // Creates the title text
+                    let extraInfoTitle = new PIXI.Text(mountain.title, {
+                        fontFamily: 'Helvetica',
+                        fontWeight: '500',
+                        fontSize: 21, 
+                        fill: 'black', 
+                        align: 'left',
+                    });
+
+                    extraInfoTitle.x = 20;
+                    extraInfoTitle.y = 0;
+                    extraInfoTitle.alpha = 1;
+
+                    // Creates the title 2 text
+                    let extraInfoTitleTwo = new PIXI.Text(mountain.titletwo, {
+                        fontFamily: 'Helvetica',
+                        fontWeight: '100',
+                        fontSize: 19, 
+                        fontStyle: 'italic',
+                        fill: 'black', 
+                        align: 'left',
+                    });
+
+                    extraInfoTitleTwo.x = 20;
+                    extraInfoTitleTwo.y = 35;
+                    extraInfoTitleTwo.alpha = 1;
+
+                    // Creates the flag text
+                    let extraInfoFlag = new PIXI.Text(mountain.flags, {
+                        fontFamily: 'Helvetica',
+                        fontWeight: '100',
+                        fontSize: 34, 
+                        fill: 'black', 
+                        align: 'left',
+                        direction: 'ltr',
+                    });
+                    
+                    extraInfoFlag.x = 375;  // 325 FOR EVEREST  // 375 FOR OTHERS // 
+                    extraInfoFlag.y = -8;
+                    extraInfoFlag.alpha = 1;
+
+                    console.log(extraInfoFlag);
+
+                    // Creates the text for user completion
+                    let userCompletion = Math.round((elevation / parseElevation(mountain.height)) * 100);
+                    if (userCompletion > 100) {
+                        userCompletion = 100;
+                    };
+
+                    let extraInfoCompletion = new PIXI.Text(`You have completed ${userCompletion}% of this mountain`, {
+                        fontFamily: 'Helvetica',
+                        fontWeight: '100',
+                        fontSize: 18, 
+                        fill: 'black', 
+                        align: 'left',
+                    });
+
+                    extraInfoCompletion.x = 20;
+                    extraInfoCompletion.y = 183;
+                    extraInfoCompletion.alpha = 1;
+
+                    mountainInfoText.addChild(extraInfoTitle);
+                    mountainInfoText.addChild(extraInfoTitleTwo);
+                    mountainInfoText.addChild(extraInfoCompletion);
+                    mountainInfoText.addChild(extraInfoFlag);
+
+                };
+
+                // Creates the extra images of the mountains in the info box
+                const createExtraInfoImages = (mountain) => {
+                        
+                        mountainInfoPictures = new PIXI.Container();
+                        mountainInfoPictures.x = 1440;
+                        mountainInfoPictures.y = 80;
+                        mountainInfoPictures.alpha = 0.0;
+
+                        let extraInfoPictureOneTexture = PIXI.Texture.from(mountain.extraInfoPictureOne);
+                        let extraInfoPictureOne = new PIXI.Sprite(extraInfoPictureOneTexture);
+                        extraInfoPictureOne.x = 0;
+                        extraInfoPictureOne.y = 0;
+                        extraInfoPictureOne.width = 190;
+                        extraInfoPictureOne.height = 100;
+
+                        let extraInfoPictureTwoTexture = PIXI.Texture.from(mountain.extraInfoPictureTwo);
+                        let extraInfoPictureTwo = new PIXI.Sprite(extraInfoPictureTwoTexture);
+                        extraInfoPictureTwo.x = 200;
+                        extraInfoPictureTwo.y = 0;
+                        extraInfoPictureTwo.width = 190;
+                        extraInfoPictureTwo.height = 100;
+
+
+                        mountainInfoPictures.addChild(extraInfoPictureOne);
+                        mountainInfoPictures.addChild(extraInfoPictureTwo);
+
+                };
+
+                createExtraInfoBox(mountain);
+                createInfoBoxText(mountain);
+                createExtraInfoImages(mountain);
+
 
                 gsap.to(mountainInfoBorder, { alpha: 1, duration: 0.5, delay: 0 });
-                gsap.to(mountainMoreInfo, { alpha: 1, duration: 0.5, delay: 0 });
-                gsap.to(mountainFlags, { alpha: 1, duration: 0.5, delay: 0 });
+                gsap.to(mountainExtraColour, { alpha: 1, duration: 0.5, delay: 0 });
+                gsap.to(mountainInfoText, { alpha: 1, duration: 0.5, delay: 0 });
+                gsap.to(mountainInfoPictures, { alpha: 0.7, duration: 0.5, delay: 0 });
 
-                labelContainer.addChild(mountainInfoBorder);
-                labelContainer.addChild(mountainFlags);
-                labelContainer.addChild(mountainMoreInfo);
+                extraInfoContainer.addChild(mountainInfoBorder, mountainExtraColour, mountainInfoText, mountainInfoPictures);
 
                 console.log(infoBoxActive);
 
             } else {
                 gsap.to(mountainInfoBorder, { alpha: 0, duration: 0.5, delay: 0 });
-                gsap.to(mountainMoreInfo, { alpha: 0, duration: 0.5, delay: 0 });
-                gsap.to(mountainFlags, { alpha: 0, duration: 0.5, delay: 0 });
+                gsap.to(mountainExtraColour, { alpha: 0, duration: 0.5, delay: 0 });
+                gsap.to(mountainInfoText, { alpha: 0, duration: 0.5, delay: 0 });
             };
 
         };
@@ -1490,6 +1613,7 @@ const CreateCanvas = (props) => {
             let baseTexture = PIXI.Texture.from(mountain.baseTexture);
             item.texture = baseTexture;
             appRef.current.stage.removeChild(labelContainer);
+            appRef.current.stage.removeChild(extraInfoContainer);
             handleCanvasMouseout(item);
         };
 
