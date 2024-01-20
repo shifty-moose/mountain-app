@@ -16,6 +16,7 @@ const CreateCanvas = (props) => {
     const mapMarkerLineRef = useRef();
     const mapMarkerLineTwoRef = useRef();
     const extraInfoBoxRef = useRef();
+    const extraInfoInstructionsRef = useRef();
 
     let elevation = props.elevation;
 
@@ -1358,10 +1359,52 @@ const CreateCanvas = (props) => {
             },
         ];
 
+        // Creating the instruction box
+        const createInstructionBox = () => {
+            extraInfoInstructionsRef.current = new PIXI.Container();
+            extraInfoInstructionsRef.current.x = 0;
+            extraInfoInstructionsRef.current.y = 0;
+            appRef.current.stage.addChild(extraInfoInstructionsRef.current);
+
+            let instructionBoxGraphic = new PIXI.Graphics();
+            instructionBoxGraphic.lineStyle(1, '0xEEEEEE', 1);
+            instructionBoxGraphic.beginFill('0xEEEEEE');
+            instructionBoxGraphic.moveTo(1400, 0);
+            instructionBoxGraphic.lineTo(1850, 0);
+            instructionBoxGraphic.lineTo(1850, 35);
+            instructionBoxGraphic.lineTo(1400, 35);
+            instructionBoxGraphic.closePath();
+            instructionBoxGraphic.endFill();
+
+            let instructionBoxGraphicDetail = new PIXI.Graphics();
+            instructionBoxGraphicDetail.lineStyle(1, 'FC6100', 1);
+            instructionBoxGraphicDetail.beginFill('FC6100');
+            instructionBoxGraphicDetail.moveTo(1400, 0);
+            instructionBoxGraphicDetail.lineTo(1410, 0);
+            instructionBoxGraphicDetail.lineTo(1410, 35);
+            instructionBoxGraphicDetail.lineTo(1400, 35);
+            instructionBoxGraphicDetail.closePath();
+            instructionBoxGraphicDetail.endFill();
+
+            let instructionText = new PIXI.Text('Click on a mountain to see more information ▸', {
+                fontFamily: 'Helvetica',
+                fontWeight: '100',
+                fontSize: 20,
+                fill: 'black',
+                align: 'left',
+            });
+
+            instructionText.x = 1425;
+            instructionText.y = 5;
+            instructionText.alpha = 1;
+
+            extraInfoInstructionsRef.current.addChild(instructionBoxGraphic, instructionBoxGraphicDetail, instructionText);
+        };
+
+        createInstructionBox();
+
         // Creates the label container for text and lines
         let labelContainer;
-
-        let extraInfoContainer;
 
         // Creates the label for the mountain (Text and Lines) and inserts it into the labelContainer
         const createMountainLabel = item => {
@@ -1436,7 +1479,6 @@ const CreateCanvas = (props) => {
                 return parsedHeight;
             };
 
-
             if (!extraInfoBoxRef.current) { 
 
                 // Creates the extra info container
@@ -1460,7 +1502,7 @@ const CreateCanvas = (props) => {
 
                     mountainInfoBorder.closePath();
                     mountainInfoBorder.endFill(); 
-                    mountainInfoBorder.alpha = 0;
+                    mountainInfoBorder.alpha = 1;
 
                     // Defining a colourful border line
                     mountainExtraColour = new PIXI.Graphics();
@@ -1472,7 +1514,7 @@ const CreateCanvas = (props) => {
                     mountainExtraColour.lineTo(1410, 0);
                     mountainExtraColour.closePath();
                     mountainExtraColour.endFill();
-                    mountainExtraColour.alpha = 0;
+                    mountainExtraColour.alpha = 1;
                 };
 
                 // Creates the extra info box text
@@ -1605,20 +1647,25 @@ const CreateCanvas = (props) => {
                 createInfoBoxText(mountain);
                 createExtraInfoImages(mountain);
 
+                gsap.fromTo(extraInfoInstructionsRef.current, { alpha: 1 }, { alpha: 0, duration: 0.5, delay: 0 });
 
-                gsap.to(mountainInfoBorder, { alpha: 1, duration: 0.5, delay: 0 });
-                gsap.to(mountainExtraColour, { alpha: 1, duration: 0.5, delay: 0 });
-                gsap.to(mountainInfoText, { alpha: 1, duration: 0.5, delay: 0 });
-                gsap.to(mountainInfoPictures, { alpha: 0.7, duration: 0.5, delay: 0 });
+                gsap.fromTo(mountainInfoBorder, { alpha: 0, y: -100 }, { alpha: 1, y: mountainInfoBorder.y, duration: 0.5, delay: 0.0 });
+                gsap.fromTo(mountainExtraColour, { alpha: 0, y: -100 }, { alpha: 1, y: mountainExtraColour.y, duration: 0.5, delay: 0 });
+                gsap.fromTo(mountainInfoText, { alpha: 0, y: -100 }, { alpha: 1, y: mountainInfoText.y, duration: 0.5, delay: 0 });
+                gsap.fromTo(mountainInfoPictures, { alpha: 0, y: -100 }, { alpha: 0.7, y: mountainInfoPictures.y, duration: 0.5, delay: 0 });
 
                 extraInfoBoxRef.current.addChild(mountainInfoBorder, mountainExtraColour, mountainInfoText, mountainInfoPictures);
 
             } else {
-                gsap.to(extraInfoBoxRef.current, { alpha: 0, duration: 0.5, delay: 0 });
+                gsap.fromTo(extraInfoBoxRef.current, { alpha: 1, y: extraInfoBoxRef.current.y }, { alpha: 0, y: -100, duration: 0.5, delay:0 });
+
+                gsap.fromTo(extraInfoInstructionsRef.current, { alpha: extraInfoInstructionsRef.current.alpha  }, { alpha: 1, duration: 1, delay: 0 });
+
                 gsap.delayedCall(0.5, () => {
                     appRef.current.stage.removeChild(extraInfoBoxRef.current);
                     extraInfoBoxRef.current = null;
                 });
+            
             };
 
         };
@@ -1668,6 +1715,7 @@ const CreateCanvas = (props) => {
             item.texture = baseTexture;
             appRef.current.stage.removeChild(labelContainer);
             appRef.current.stage.removeChild(extraInfoBoxRef.current);
+            gsap.fromTo(extraInfoInstructionsRef.current, { alpha: extraInfoInstructionsRef.current.alpha  }, { alpha: 1, duration: 0.5, delay: 0.2 });
             extraInfoBoxRef.current = null;
             handleCanvasMouseout(item);
         };
