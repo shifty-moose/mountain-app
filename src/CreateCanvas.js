@@ -9,7 +9,6 @@ import './CreateCanvas.css';
 const CreateCanvas = (props) => {
     const [mapMarkerActive, setMapMarkerActive] = useState(true);
     const [isHoveringOnMountain, setIsHoveringOnMountain] = useState(false);
-    const [infoBoxActive, setInfoBoxActive] = useState(false);
     const canvasRef = useRef();
     const appRef = useRef();
     const mapMarkerRef = useRef();
@@ -1613,9 +1612,6 @@ const CreateCanvas = (props) => {
                 gsap.to(mountainInfoPictures, { alpha: 0.7, duration: 0.5, delay: 0 });
 
                 extraInfoBoxRef.current.addChild(mountainInfoBorder, mountainExtraColour, mountainInfoText, mountainInfoPictures);
-
-                setInfoBoxActive(true);
-
 
             } else {
                 gsap.to(extraInfoBoxRef.current, { alpha: 0, duration: 0.5, delay: 0 });
