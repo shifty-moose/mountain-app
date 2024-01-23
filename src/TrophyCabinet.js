@@ -1,15 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./TrophyCabinet.css";
-import { type } from "@testing-library/user-event/dist/type";
-
-
-
-
 
 const TrophyCabinet = (props) => {
-
     const [completedTrophies, setCompletedTrophies] = useState([]);
     const [uncompletedTrophies, setUncompletedTrophies] = useState([]);
+    const [hoveredBadgeInfo, setHoveredBadgeInfo] = useState('▾ Hover over a badge for more information');
 
     const elevation = props.elevation;
 
@@ -94,17 +89,13 @@ const TrophyCabinet = (props) => {
         }
     ];
 
-    const evaluateTrophyCompletion = (elevation) => {
 
+    const evaluateTrophyCompletion = (elevation) => {
         let complete = [];
         let incomplete = [];
 
         badges.forEach((badge) => {
-            if (elevation >= badge.completionElevation) {
-                complete.push(badge);
-            } else {
-                incomplete.push(badge);
-            };
+            elevation >= badge.completionElevation ? complete.push(badge) : incomplete.push(badge);
         });
 
         complete.reverse();
@@ -112,63 +103,49 @@ const TrophyCabinet = (props) => {
 
         setCompletedTrophies(complete);
         setUncompletedTrophies(incomplete);
-
     };
-
 
     useEffect(() => {
         evaluateTrophyCompletion(elevation);
     }, [elevation]);
 
+    const handleBadgeMouseOver = (badgeInfo) => {
+        setHoveredBadgeInfo(badgeInfo);
+    };
+
+    const handleBadgeMouseOut = () => {
+        setHoveredBadgeInfo('▾ Hover over a badge for more information');
+    };
+
     return (
-
-    <div className="trophyCabinetContainer">
-
-        <div className="trophyCabinetHeader">
-            <h2>Trophy Cabinet:</h2>
-            <h3 id='trophyInfo'>▾ Hover over a badge for more information</h3>
-        </div>
-
-        <div className="trophyCabinet">
-            
-            {completedTrophies.map((badge) => {
-                return (
-                    <div className="trophy">
-                        <img 
-                        src={badge.image} 
-                        className="trophyImg completeTrophy"
-                        onMouseOver={() => {
-                            document.getElementById('trophyInfo').innerHTML = badge.name;
-                            document.getElementById('trophyInfo').classList.add('fadeIn');
-                        }}
-                        onMouseOut={() => {
-                            document.getElementById('trophyInfo').innerHTML = '▾ Hover over a badge for more information';
-                            document.getElementById('trophyInfo').classList.remove('fadeIn');
-                        }}
-                        
+        <div className="trophyCabinetContainer">
+            <div className="trophyCabinetHeader">
+                <h2>2024 Trophy Cabinet:</h2>
+                <h3 id='trophyInfo'>{hoveredBadgeInfo}</h3>
+            </div>
+            <div className="trophyCabinet">
+                {completedTrophies.map((badge) => (
+                    <div className="trophy" key={badge.name}>
+                        <img
+                            src={badge.image}
+                            className="trophyImg completeTrophy"
+                            onMouseOver={() => handleBadgeMouseOver(badge.name)}
+                            onMouseOut={handleBadgeMouseOut}
                         />
                     </div>
-                );
-            })}
-
-            {uncompletedTrophies.map((badge) => {
-                return (
-                    <div className="trophy">
-                        <img 
-                        src={badge.image} 
-                        className="trophyImg incompleteTrophy"
-                        onMouseOver={() => {
-                            document.getElementById('trophyInfo').innerHTML = badge.incompletionString;
-                        }}
-                        onMouseOut={() => {
-                            document.getElementById('trophyInfo').innerHTML = '▾ Hover over a badge for more information';
-                        }}
+                ))}
+                {uncompletedTrophies.map((badge) => (
+                    <div className="trophy" key={badge.name}>
+                        <img
+                            src={badge.image}
+                            className="trophyImg incompleteTrophy"
+                            onMouseOver={() => handleBadgeMouseOver(badge.incompletionString)}
+                            onMouseOut={handleBadgeMouseOut}
                         />
                     </div>
-                );
-            })}
+                ))}
+            </div>
         </div>
-    </div>
     );
 };
 

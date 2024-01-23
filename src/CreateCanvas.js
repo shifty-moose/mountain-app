@@ -283,7 +283,7 @@ const CreateCanvas = (props) => {
         mapMarkerLineTwo.closePath();
         mapMarkerLineTwo.scale.x = 0; 
 
-    mapMarkerRef.current = mapMarker;
+        mapMarkerRef.current = mapMarker;
         mapMarkerLabelRef.current = mapMarkerLabel;
         mapMarkerLineRef.current = mapMarkerLine;
         mapMarkerLineTwoRef.current = mapMarkerLineTwo;
@@ -1313,7 +1313,7 @@ const CreateCanvas = (props) => {
                 name: 'trees',
                 title: 'Amazon Rainforest - Tallest Canopy Trees',
                 titletwo: 'Amazonía, Amazônia',
-                height: '60 - 100m',
+                height: '100m',
                 flags: '🇧🇷 🇵🇪 🇨🇴 🇻🇪 🇧🇴 🇬🇾 🇸🇷',
                 location: 'South America',
 
@@ -1386,7 +1386,7 @@ const CreateCanvas = (props) => {
             instructionBoxGraphicDetail.closePath();
             instructionBoxGraphicDetail.endFill();
 
-            let instructionText = new PIXI.Text('Click on a mountain to see more information ▸', {
+            let instructionText = new PIXI.Text('Click on a mountain to see more information ▾', {
                 fontFamily: 'Helvetica',
                 fontWeight: '100',
                 fontSize: 20,
@@ -1606,6 +1606,14 @@ const CreateCanvas = (props) => {
                         fill: 'black', 
                         align: 'left',
                     });
+
+                    if (mountain.name === 'nyc' || mountain.name === 'trees' || mountain.name === 'burj' || mountain.name === 'oneworldtrade' || mountain.name === 'christo') {
+                        extraInfoCompletion.text = `You have completed ${userCompletion}% of this landmark`;
+                    };
+
+                    if (mountain.name === 'holland') {
+                        extraInfoCompletion.text = `You have completed ${userCompletion}% of this hill`;
+                    };
 
                     extraInfoCompletion.x = 20;
                     extraInfoCompletion.y = 205;

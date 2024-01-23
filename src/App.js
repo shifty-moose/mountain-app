@@ -7,7 +7,7 @@ import TrophyCabinet from './TrophyCabinet';
 
 function App() {
   const [name, setName] = useState('');
-  const [elevation, setElevation] = useState(500);
+  const [elevation, setElevation] = useState(5800);
 
   return (
     <div className='appWrapper'>
