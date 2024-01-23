@@ -7,7 +7,6 @@
     height: 60px;
     width: 100%;
     background-color: #FC6100;
-    padding-top: 5px;
 }
 
 .headerContent {
@@ -18,8 +17,6 @@
     align-items: center;
     justify-content: space-between;
 }
-
-
 
 .headerLeft {
     display: flex;
@@ -38,15 +35,15 @@
 .headerProfilePic {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     height: 60%;
     width: auto;
     padding-right: 4rem;
 }
 
-.headerLeft h2 {
+.headerContent h2 {
     color: rgb(245, 245, 245);
     font-family: 'Fugaz One', cursive;
     align-self: center;
-    padding-top: 10px;
+    margin-left: 0.6rem;
 }

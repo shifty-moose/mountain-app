@@ -12,6 +12,7 @@ const Header = () => {
                 <div className="headerLeft">
                     <img src={logo} className="headerLogo"/>
                     <h2>HOW MANY MOUNTAINS?</h2>
+
                 </div>
 
                 <img src={profilepic} className="headerProfilePic"/>

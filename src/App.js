@@ -3,6 +3,7 @@ import './App.css';
 import AppInfo from './AppInfo';
 import CreateCanvas from './CreateCanvas';
 import Header from './Header';
+import TrophyCabinet from './TrophyCabinet';
 
 function App() {
   const [name, setName] = useState('');
@@ -51,6 +52,8 @@ function App() {
               <input type="text" name="elevation" value={elevation} onChange={handleChange} />
               <button type="submit">Submit</button>
             </form>
+
+            <TrophyCabinet />
 
             <div className='footerDiv'>
               

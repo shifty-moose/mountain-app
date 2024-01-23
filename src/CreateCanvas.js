@@ -1743,7 +1743,9 @@ const CreateCanvas = (props) => {
             mountain.hitArea = new PIXI.Polygon(element.hitArea);
 
             appRef.current.stage.addChild(mountain);
-        });      
+        });    
+        
+        console.log(listOfMountains);
 
         return () => {
             appRef.current.destroy();
