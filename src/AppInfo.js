@@ -9,7 +9,6 @@ const AppInfo = (props) => {
 
     let name = props.name || 'User';
     let elevation = props.elevation;
-    let isValid = props.isValid;
 
     const formatElevation = (elevation) => {
         const elevationInt = parseInt(elevation, 10);

@@ -1745,8 +1745,6 @@ const CreateCanvas = (props) => {
             appRef.current.stage.addChild(mountain);
         });    
         
-        console.log(listOfMountains);
-
         return () => {
             appRef.current.destroy();
         };

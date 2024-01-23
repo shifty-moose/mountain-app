@@ -7,33 +7,10 @@ import TrophyCabinet from './TrophyCabinet';
 
 function App() {
   const [name, setName] = useState('');
-  const [elevation, setElevation] = useState(1000);
-  const [isValid, setIsValid] = useState(false);
-
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-  
-    if (name === 'name') {
-      setName(value);
-    } else if (name === 'elevation') {
-      const newElevation = value.trim() === '' ? value : parseInt(value, 10);
-      setElevation(newElevation);
-    };
-  };
-  
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    // Perform validation logic here
-    const isNameValid = name.trim() !== '';
-    const isElevationValid = elevation.trim() !== '';
-
-    setIsValid(isNameValid && isElevationValid);
-  };
+  const [elevation, setElevation] = useState(500);
 
   return (
-    <div>
+    <div className='appWrapper'>
       <Header />
 
 
@@ -41,22 +18,18 @@ function App() {
             <AppInfo 
             name={name}
             elevation= {elevation}
-            isValid={isValid} />
+            />
 
             <CreateCanvas 
             elevation= {elevation}
             />
 
-            <form onSubmit={handleSubmit}>
-              <input type="text" name="name" value={name} onChange={handleChange} />
-              <input type="text" name="elevation" value={elevation} onChange={handleChange} />
-              <button type="submit">Submit</button>
-            </form>
-
-            <TrophyCabinet />
+            <TrophyCabinet
+            elevation= {elevation}
+            />
 
             <div className='footerDiv'>
-              
+
             </div>
 
       
