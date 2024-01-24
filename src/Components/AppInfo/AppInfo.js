@@ -1,11 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
-import './App.css';
+import React from 'react';
+import './AppInfo.css';
 import { useSpring, useChain, animated, config } from 'react-spring';
 import { easings } from '@react-spring/web';
 
 
 const AppInfo = (props) => {
-    const [state, setState] = useState(true);
 
     let name = props.name || 'User';
     let elevation = props.elevation;
@@ -52,7 +51,6 @@ const AppInfo = (props) => {
         config: { duration: 5000 },
         delay: 3000,
     });
-
 
     const percentageSpring = useSpring({
         from: { value: 0 },

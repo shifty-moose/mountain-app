@@ -1,0 +1,47 @@
+
+.appDivText {
+  width: 75%;
+  display: flex;
+  margin: auto;
+  margin-top: 4rem;
+  margin-bottom: 1rem;
+  justify-content: space-between;
+}
+
+.leftText {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.appDivText .leftText h1 {
+  font-size: 2rem;
+  font-weight: 500;
+  color: #FC6100;
+}
+
+.rightText {
+  display: flex;
+  flex-direction: column;    
+}
+
+.rightText h1 {
+  font-size: 1.6rem;
+  font-weight: 500;
+  text-align: right;
+  margin-bottom: 1rem;
+}
+
+.rightText h2 {
+  font-size: 1.2rem;
+  font-weight: 300;
+  text-align: right;
+  margin-bottom: 0rem;
+}
+
+.rightText h4 {
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: right;
+}
+

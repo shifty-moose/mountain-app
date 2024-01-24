@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './App.css';
-import AppInfo from './AppInfo';
-import CreateCanvas from './CreateCanvas';
-import Header from './Header';
-import TrophyCabinet from './TrophyCabinet';
+import AppInfo from './Components/AppInfo/AppInfo';
+import CreateCanvas from './Components/CreateCanvas/CreateCanvas';
+import Header from './Components/Header/Header';
+import TrophyCabinet from './Components/TrophyCabinet/TrophyCabinet';
 
 function App() {
   const [name, setName] = useState('');
@@ -11,9 +11,8 @@ function App() {
 
   return (
     <div className='appWrapper'>
-      <Header />
-
-
+            
+            <Header />
 
             <AppInfo 
             name={name}
@@ -25,7 +24,7 @@ function App() {
             />
 
             <TrophyCabinet
-            elevation= {elevation}
+            elevation= {elevation} 
             />
 
             <div className='footerDiv'>

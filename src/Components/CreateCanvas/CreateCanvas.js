@@ -362,13 +362,13 @@ const CreateCanvas = (props) => {
                 // x and y coordinates for the vetical line to end
                 xVerticalEnd: null,
                 yVerticalEnd: null,
-
+                
 
                 // Image files for the mountain
-                baseTexture: './img/everest.png',
-                highlightTexture: './img/everestHighlight.png',
-                extraInfoPictureOne: './img/everestExtra1.png',
-                extraInfoPictureTwo: './img/everestExtra2.png',
+                baseTexture: './img/MountainPics/everest.png',
+                highlightTexture: './img/MountainPics/everestHighlight.png',
+                extraInfoPictureOne: './img/MountainPics/everestExtra1.png',
+                extraInfoPictureTwo: './img/MountainPics/everestExtra2.png',
 
                 // Hit area for the mountain
                 hitArea: [ 
@@ -426,10 +426,10 @@ const CreateCanvas = (props) => {
                 yVerticalEnd: 68,
 
                 // Image files for the mountain
-                baseTexture: './img/anaconooga.png',
-                highlightTexture: './img/anaconoogaHighlight.png',
-                extraInfoPictureOne: './img/aconcaguaExtra1.png',
-                extraInfoPictureTwo: './img/aconcaguaExtra2.png',
+                baseTexture: './img/MountainPics/anaconooga.png',
+                highlightTexture: './img/MountainPics/anaconoogaHighlight.png',
+                extraInfoPictureOne: './img/MountainPics/aconcaguaExtra1.png',
+                extraInfoPictureTwo: './img/MountainPics/aconcaguaExtra2.png',
 
 
                 // Hit area for the mountain
@@ -494,10 +494,10 @@ const CreateCanvas = (props) => {
                 yVerticalEnd: 120,
 
                 // Image files for the mountain
-                baseTexture: './img/mckinley.png',
-                highlightTexture: './img/mckinleyHighlight.png',
-                extraInfoPictureOne: './img/mckinleyExtra1.png',
-                extraInfoPictureTwo: './img/mckinleyExtra2.png',
+                baseTexture: './img/MountainPics/mckinley.png',
+                highlightTexture: './img/MountainPics/mckinleyHighlight.png',
+                extraInfoPictureOne: './img/MountainPics/mckinleyExtra1.png',
+                extraInfoPictureTwo: './img/MountainPics/mckinleyExtra2.png',
 
                 // Hit area for the mountain
                 hitArea: [
@@ -575,10 +575,10 @@ const CreateCanvas = (props) => {
                 yVerticalEnd: 300,
 
                 // Image files for the mountain
-                baseTexture: './img/kilimanjaro.png',
-                highlightTexture: './img/kilimanjaroHighlight.png',
-                extraInfoPictureOne: './img/kilimanjaroExtra1.png',
-                extraInfoPictureTwo: './img/kilimanjaroExtra2.png',
+                baseTexture: './img/MountainPics/kilimanjaro.png',
+                highlightTexture: './img/MountainPics/kilimanjaroHighlight.png',
+                extraInfoPictureOne: './img/MountainPics/kilimanjaroExtra1.png',
+                extraInfoPictureTwo: './img/MountainPics/kilimanjaroExtra2.png',
 
                 // Hit area for the mountain
                 hitArea: [
@@ -663,10 +663,10 @@ const CreateCanvas = (props) => {
                 yVerticalEnd: 325,
 
                 // Image files for the mountain
-                baseTexture: './img/elbrus.png',
-                highlightTexture: './img/elbrusHighlight.png',
-                extraInfoPictureOne: './img/elbrusExtra1.png',
-                extraInfoPictureTwo: './img/elbrusExtra2.png',
+                baseTexture: './img/MountainPics/elbrus.png',
+                highlightTexture: './img/MountainPics/elbrusHighlight.png',
+                extraInfoPictureOne: './img/MountainPics/elbrusExtra1.png',
+                extraInfoPictureTwo: './img/MountainPics/elbrusExtra2.png',
 
                 // Hit area for the mountain
                 hitArea: [
@@ -732,10 +732,10 @@ const CreateCanvas = (props) => {
                 yVerticalEnd: 395,
 
                 // Image files for the mountain
-                baseTexture: './img/vinson.png',
-                highlightTexture: './img/vinsonHighlight.png',
-                extraInfoPictureOne: './img/vinsonExtra1.png',
-                extraInfoPictureTwo: './img/vinsonExtra2.png',
+                baseTexture: './img/MountainPics/vinson.png',
+                highlightTexture: './img/MountainPics/vinsonHighlight.png',
+                extraInfoPictureOne: './img/MountainPics/vinsonExtra1.png',
+                extraInfoPictureTwo: './img/MountainPics/vinsonExtra2.png',
 
                 // Hit area for the mountain
                 hitArea: [
@@ -787,10 +787,10 @@ const CreateCanvas = (props) => {
                 yVerticalEnd: 412,
 
                 // Image files for the mountain
-                baseTexture: './img/puncakjaya.png',
-                highlightTexture: './img/puncakjayaHighlight.png',
-                extraInfoPictureOne: './img/puncakjayaExtra1.png',
-                extraInfoPictureTwo: './img/puncakjayaExtra2.png',
+                baseTexture: './img/MountainPics/puncakjaya.png',
+                highlightTexture: './img/MountainPics/puncakjayaHighlight.png',
+                extraInfoPictureOne: './img/MountainPics/puncakjayaExtra1.png',
+                extraInfoPictureTwo: './img/MountainPics/puncakjayaExtra2.png',
 
                 // Hit area for the mountain
                 hitArea: [
@@ -854,10 +854,10 @@ const CreateCanvas = (props) => {
                 yVerticalEnd: 445,
 
                 // Image files for the mountain
-                baseTexture: './img/fuji.png',
-                highlightTexture: './img/fujiHighlight.png',
-                extraInfoPictureOne: './img/fujiExtra1.png',
-                extraInfoPictureTwo: './img/fujiExtra2.png',
+                baseTexture: './img/MountainPics/fuji.png',
+                highlightTexture: './img/MountainPics/fujiHighlight.png',
+                extraInfoPictureOne: './img/MountainPics/fujiExtra1.png',
+                extraInfoPictureTwo: './img/MountainPics/fujiExtra2.png',
 
                 // Hit area for the mountain
                 hitArea: [
@@ -909,10 +909,10 @@ const CreateCanvas = (props) => {
                 yVerticalEnd: 497,
 
                 // Image files for the mountain
-                baseTexture: './img/kosciuszko.png',
-                highlightTexture: './img/kosciuszkoHighlight.png',
-                extraInfoPictureOne: './img/kosciuszkoExtra1.png',
-                extraInfoPictureTwo: './img/kosciuszkoExtra2.png',
+                baseTexture: './img/MountainPics/kosciuszko.png',
+                highlightTexture: './img/MountainPics/kosciuszkoHighlight.png',
+                extraInfoPictureOne: './img/MountainPics/kosciuszkoExtra1.png',
+                extraInfoPictureTwo: './img/MountainPics/kosciuszkoExtra2.png',
 
                 // Hit area for the mountain
                 hitArea: [
@@ -986,10 +986,10 @@ const CreateCanvas = (props) => {
                 yVerticalEnd: 510,
 
                 // Image files for the mountain
-                baseTexture: './img/buller.png',
-                highlightTexture: './img/bullerHighlight.png',
-                extraInfoPictureOne: './img/bullerExtra1.png',
-                extraInfoPictureTwo: './img/bullerExtra2.png',
+                baseTexture: './img/MountainPics/buller.png',
+                highlightTexture: './img/MountainPics/bullerHighlight.png',
+                extraInfoPictureOne: './img/MountainPics/bullerExtra1.png',
+                extraInfoPictureTwo: './img/MountainPics/bullerExtra2.png',
 
                 // Hit area for the mountain
                 hitArea: [
@@ -1040,10 +1040,10 @@ const CreateCanvas = (props) => {
                 yVerticalEnd: 525,
 
                 // Image files for the mountain
-                baseTexture: './img/bennevis.png',
-                highlightTexture: './img/bennevisHighlight.png',
-                extraInfoPictureOne: './img/bennevisExtra1.png',
-                extraInfoPictureTwo: './img/bennevisExtra2.png',
+                baseTexture: './img/MountainPics/bennevis.png',
+                highlightTexture: './img/MountainPics/bennevisHighlight.png',
+                extraInfoPictureOne: './img/MountainPics/bennevisExtra1.png',
+                extraInfoPictureTwo: './img/MountainPics/bennevisExtra2.png',
 
                 // Hit area for the mountain
                 hitArea: [
@@ -1093,10 +1093,10 @@ const CreateCanvas = (props) => {
                 yVerticalEnd: 525,
 
                 // Image files for the mountain
-                baseTexture: './img/christo.png',
-                highlightTexture: './img/christoHighlight.png',
-                extraInfoPictureOne: './img/christoExtra1.png',
-                extraInfoPictureTwo: './img/christoExtra2.png',
+                baseTexture: './img/MountainPics/christo.png',
+                highlightTexture: './img/MountainPics/christoHighlight.png',
+                extraInfoPictureOne: './img/MountainPics/christoExtra1.png',
+                extraInfoPictureTwo: './img/MountainPics/christoExtra2.png',
 
                 // Hit area for the mountain
                 hitArea: [
@@ -1146,10 +1146,10 @@ const CreateCanvas = (props) => {
                 yVerticalEnd: 570,
 
                 // Image files for the mountain
-                baseTexture: './img/holland.png',
-                highlightTexture: './img/hollandHighlight.png',
-                extraInfoPictureOne: './img/hollandExtra1.png',
-                extraInfoPictureTwo: './img/hollandExtra2.png',
+                baseTexture: './img/MountainPics/holland.png',
+                highlightTexture: './img/MountainPics/hollandHighlight.png',
+                extraInfoPictureOne: './img/MountainPics/hollandExtra1.png',
+                extraInfoPictureTwo: './img/MountainPics/hollandExtra2.png',
 
                 // Hit area for the mountain
                 hitArea: [
@@ -1195,10 +1195,10 @@ const CreateCanvas = (props) => {
                 yVerticalEnd: 525,
 
                 // Image files for the building
-                baseTexture: './img/burj.png',
-                highlightTexture: './img/burjHighlight.png',
-                extraInfoPictureOne: './img/burjExtra1.png',
-                extraInfoPictureTwo: './img/burjExtra2.png',
+                baseTexture: './img/MountainPics/burj.png',
+                highlightTexture: './img/MountainPics/burjHighlight.png',
+                extraInfoPictureOne: './img/MountainPics/burjExtra1.png',
+                extraInfoPictureTwo: './img/MountainPics/burjExtra2.png',
 
                 // Hit area for the mountain
                 hitArea: [
@@ -1243,10 +1243,10 @@ const CreateCanvas = (props) => {
                 yVerticalEnd: 545,
 
                 // Image files for the building
-                baseTexture: './img/oneworldtrade.png',
-                highlightTexture: './img/oneworldtradeHighlight.png',
-                extraInfoPictureOne: './img/oneworldtradeExtra1.png',
-                extraInfoPictureTwo: './img/oneworldtradeExtra2.png',
+                baseTexture: './img/MountainPics/oneworldtrade.png',
+                highlightTexture: './img/MountainPics/oneworldtradeHighlight.png',
+                extraInfoPictureOne: './img/MountainPics/oneworldtradeExtra1.png',
+                extraInfoPictureTwo: './img/MountainPics/oneworldtradeExtra2.png',
 
                 // Hit area for the building
                 hitArea: [
@@ -1292,10 +1292,10 @@ const CreateCanvas = (props) => {
                 yVerticalEnd: 570,
 
                 // Image files for the building
-                baseTexture: './img/nyc.png',
-                highlightTexture: './img/nycHighlight.png',
-                extraInfoPictureOne: './img/nycExtra1.png',
-                extraInfoPictureTwo: './img/nycExtra2.png',
+                baseTexture: './img/MountainPics/nyc.png',
+                highlightTexture: './img/MountainPics/nycHighlight.png',
+                extraInfoPictureOne: './img/MountainPics/nycExtra1.png',
+                extraInfoPictureTwo: './img/MountainPics/nycExtra2.png',
 
                 // Hit area for the building
                 hitArea: [
@@ -1341,10 +1341,10 @@ const CreateCanvas = (props) => {
                 yVerticalEnd: 580,
 
                 // Image files for the trees
-                baseTexture: './img/trees.png',
-                highlightTexture: './img/treesHighlight.png',
-                extraInfoPictureOne: './img/treesExtra1.png',
-                extraInfoPictureTwo: './img/treesExtra2.png',
+                baseTexture: './img/MountainPics/trees.png',
+                highlightTexture: './img/MountainPics/treesHighlight.png',
+                extraInfoPictureOne: './img/MountainPics/treesExtra1.png',
+                extraInfoPictureTwo: './img/MountainPics/treesExtra2.png',
 
                 // Hit area for the trees
                 hitArea: [
@@ -2267,14 +2267,13 @@ const CreateCanvas = (props) => {
         
         const { x, y } = findCoordinates(elevation);
         if (elevation > 0) {
+            console.log(x, y);
             createMapMarker(x, y);
         };
 
 
     }, [elevation]);
 
-
-    
   return <div ref={canvasRef} />;
 };
 
